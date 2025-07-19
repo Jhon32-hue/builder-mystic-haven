@@ -322,7 +322,7 @@ export default function Index() {
                 <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:rotate-3">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
-                <span className="ml-3 text-xl font-bold text-gray-900 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                <span className="ml-3 text-4xl font-black text-gray-900 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent leading-10">
                   Taskly
                 </span>
               </div>
@@ -422,16 +422,16 @@ export default function Index() {
               className={`text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
               style={{ transitionDelay: "300ms" }}
             >
-              El espacio de trabajo inteligente{" "}
+              El espacio colaborativo{" "}
               <span className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-blue-600 bg-clip-text text-transparent animate-gradient bg-300% relative">
-                para equipos y proyectos de cualquier tamaño.
+                para equipos de cualquier tamaño.
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 via-indigo-600/20 to-blue-600/20 blur-lg opacity-30 animate-pulse" />
               </span>
             </h1>
 
             <p
-              className={`text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-              style={{ transitionDelay: "400ms" }}
+              className={`text-xl md:text-2xl text-gray-600 mb-10 max-w-6xl mx-auto leading-relaxed text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+              style={{ transitionDelay: "400ms", lineHeight: "30px" }}
             >
               Desde startups ágiles hasta agencias, equipos remotos y
               freelancers, <strong>Taskly</strong> te proporciona el entorno
