@@ -225,7 +225,7 @@ export default function Index() {
       assignee: "MG",
       progress: 100,
       dueDate: "Hoy",
-      tags: ["UI/UX", "Revisión"],
+      tags: ["UI/UX", "Revisi��n"],
     },
     {
       id: 2,
@@ -523,6 +523,37 @@ export default function Index() {
           style={{
             transform: `translateY(${scrollY * 0.15}px)`,
             animationDelay: "2s",
+          }}
+        />
+        {/* Additional animated elements */}
+        <div
+          className="absolute top-1/3 right-1/3 w-32 h-32 bg-gradient-to-br from-yellow-200/20 to-orange-200/20 rounded-full blur-xl animate-bounce"
+          style={{
+            transform: `translateY(${scrollY * 0.1}px)`,
+            animationDelay: "3s",
+            animationDuration: "4s",
+          }}
+        />
+        <div
+          className="absolute bottom-1/3 left-1/4 w-40 h-40 bg-gradient-to-br from-pink-200/15 to-purple-200/15 rounded-full blur-2xl animate-pulse"
+          style={{
+            transform: `translateY(${scrollY * -0.05}px)`,
+            animationDelay: "1.5s",
+          }}
+        />
+        {/* Floating geometric shapes */}
+        <div
+          className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-indigo-300/20 to-blue-300/20 rotate-45 animate-spin"
+          style={{
+            transform: `translateY(${scrollY * 0.08}px) rotate(${scrollY * 0.1}deg)`,
+            animationDuration: "20s",
+          }}
+        />
+        <div
+          className="absolute bottom-1/2 right-1/5 w-12 h-12 bg-gradient-to-br from-green-300/25 to-teal-300/25 rounded-lg animate-pulse"
+          style={{
+            transform: `translateY(${scrollY * -0.12}px) rotate(${-scrollY * 0.05}deg)`,
+            animationDelay: "4s",
           }}
         />
       </div>
@@ -1525,11 +1556,15 @@ export default function Index() {
       {/* Team Types Section */}
       <section id="equipos" className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">
+          <div className="text-center mb-16 relative">
+            {/* Animated section background */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-100/30 to-blue-100/30 rounded-full blur-3xl animate-pulse" />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 relative z-10 animate-in slide-in-from-bottom-4 duration-1000">
               Diseñado para todo tipo de equipo
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto relative z-10 animate-in slide-in-from-bottom-4 duration-1000 delay-300">
               Taskly se adapta perfectamente a tu forma de trabajar,
               independientemente del tamaño o tipo de tu organización
             </p>
@@ -1583,11 +1618,29 @@ export default function Index() {
         className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+          <div className="text-center mb-16 relative">
+            {/* Floating icons animation */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-4 left-1/4 animate-float">
+                <Database className="h-8 w-8 text-indigo-300/60" />
+              </div>
+              <div
+                className="absolute top-8 right-1/3 animate-float"
+                style={{ animationDelay: "1s" }}
+              >
+                <Zap className="h-6 w-6 text-blue-300/60" />
+              </div>
+              <div
+                className="absolute bottom-4 left-1/3 animate-float"
+                style={{ animationDelay: "2s" }}
+              >
+                <BarChart3 className="h-7 w-7 text-purple-300/60" />
+              </div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 relative z-10 animate-in slide-in-from-left-4 duration-800">
               Conecta con Taskly
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto relative z-10 animate-in slide-in-from-right-4 duration-800 delay-200">
               Integra tu CRM favorito y sincroniza clientes, oportunidades y
               datos de ventas en tiempo real
             </p>
@@ -1984,11 +2037,38 @@ export default function Index() {
       {/* Enhanced Productivity Tools Integration Section */}
       <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+          <div className="text-center mb-16 relative">
+            {/* Animated productivity icons */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div
+                className="absolute top-0 left-1/6 animate-bounce"
+                style={{ animationDelay: "0.5s", animationDuration: "3s" }}
+              >
+                <Calendar className="h-6 w-6 text-blue-300/50" />
+              </div>
+              <div
+                className="absolute top-6 right-1/4 animate-bounce"
+                style={{ animationDelay: "1.5s", animationDuration: "3s" }}
+              >
+                <Hash className="h-5 w-5 text-purple-300/50" />
+              </div>
+              <div
+                className="absolute bottom-0 left-1/3 animate-bounce"
+                style={{ animationDelay: "2.5s", animationDuration: "3s" }}
+              >
+                <GitBranch className="h-7 w-7 text-green-300/50" />
+              </div>
+              <div
+                className="absolute top-8 left-2/3 animate-bounce"
+                style={{ animationDelay: "0.8s", animationDuration: "3s" }}
+              >
+                <Palette className="h-6 w-6 text-pink-300/50" />
+              </div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 relative z-10 animate-in zoom-in-50 duration-1000">
               Herramientas de Productividad
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto relative z-10 animate-in fade-in duration-1000 delay-300">
               Conecta con las herramientas que ya usas y potencia tu flujo de
               trabajo colaborativo
             </p>
