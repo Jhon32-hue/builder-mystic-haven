@@ -1654,6 +1654,333 @@ export default function Index() {
         </div>
       </section>
 
+      {/* CRM Workflow Visualization Section */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Flujo CRM Visualizado
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Gestiona el ciclo completo desde leads hasta clientes, con
+              seguimiento automatizado y métricas en tiempo real
+            </p>
+          </div>
+
+          {/* CRM Pipeline Flow */}
+          <div className="relative mb-16">
+            {/* Animated Background */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-200 via-blue-300 to-green-300 opacity-30" />
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-blue-500 to-green-500 opacity-60 animate-pulse" />
+            </div>
+
+            {/* Pipeline Stages */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+              {[
+                {
+                  title: "Leads",
+                  count: "247",
+                  icon: Target,
+                  color: "bg-blue-500",
+                  bgColor: "bg-blue-50",
+                  borderColor: "border-blue-200",
+                  items: [
+                    "Leads calificados",
+                    "Formularios web",
+                    "Marketing campaigns",
+                  ],
+                },
+                {
+                  title: "Oportunidades",
+                  count: "89",
+                  icon: TrendingUp,
+                  color: "bg-indigo-500",
+                  bgColor: "bg-indigo-50",
+                  borderColor: "border-indigo-200",
+                  items: [
+                    "En negociación",
+                    "Propuestas enviadas",
+                    "Demos programados",
+                  ],
+                },
+                {
+                  title: "Follow-ups",
+                  count: "156",
+                  icon: RotateCcw,
+                  color: "bg-orange-500",
+                  bgColor: "bg-orange-50",
+                  borderColor: "border-orange-200",
+                  items: [
+                    "Recordatorios",
+                    "Llamadas pendientes",
+                    "Emails seguimiento",
+                  ],
+                },
+                {
+                  title: "Clientes",
+                  count: "73",
+                  icon: Award,
+                  color: "bg-green-500",
+                  bgColor: "bg-green-50",
+                  borderColor: "border-green-200",
+                  items: [
+                    "Contratos firmados",
+                    "Onboarding activo",
+                    "Renovaciones",
+                  ],
+                },
+              ].map((stage, index) => (
+                <div key={index} className="relative">
+                  {/* Connecting Arrow */}
+                  {index < 3 && (
+                    <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 z-10">
+                      <div className="w-8 h-8 bg-white border-2 border-gray-200 rounded-full flex items-center justify-center animate-pulse">
+                        <ChevronRight className="h-4 w-4 text-gray-600" />
+                      </div>
+                    </div>
+                  )}
+
+                  <Card
+                    className={`border-2 ${stage.borderColor} shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 group ${stage.bgColor}/30 backdrop-blur-sm`}
+                  >
+                    <CardContent className="p-6 text-center">
+                      <div
+                        className={`w-16 h-16 ${stage.color} rounded-xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                      >
+                        <stage.icon className="h-8 w-8" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors duration-300">
+                        {stage.title}
+                      </h3>
+                      <div className="text-3xl font-black text-gray-900 mb-4">
+                        {stage.count}
+                      </div>
+                      <div className="space-y-2">
+                        {stage.items.map((item, itemIndex) => (
+                          <div
+                            key={itemIndex}
+                            className="flex items-center text-sm text-gray-600"
+                          >
+                            <div
+                              className={`w-2 h-2 ${stage.color} rounded-full mr-2 animate-pulse`}
+                            />
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CRM Metrics and Actions */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Lead Management */}
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-blue-50 to-indigo-50">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center">
+                  <Target className="h-5 w-5 text-blue-600 mr-2" />
+                  Gestión de Leads
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">
+                        Conversión de leads
+                      </p>
+                      <p className="text-xs text-gray-500">Este mes</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-lg font-bold text-blue-600">24.3%</p>
+                      <Badge className="bg-green-100 text-green-700 text-xs">
+                        +5.2%
+                      </Badge>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">
+                        Tiempo respuesta
+                      </p>
+                      <p className="text-xs text-gray-500">Promedio</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-lg font-bold text-blue-600">2.4h</p>
+                      <Badge className="bg-green-100 text-green-700 text-xs">
+                        -15min
+                      </Badge>
+                    </div>
+                  </div>
+
+                  <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">
+                    <Plus className="h-4 w-4 mr-2" />
+                    Crear Lead
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Follow-up Scheduling */}
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-orange-50 to-yellow-50">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center">
+                  <Clock className="h-5 w-5 text-orange-600 mr-2" />
+                  Programación Follow-ups
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="space-y-3">
+                    {[
+                      {
+                        client: "Tech Solutions Inc.",
+                        time: "14:00",
+                        type: "Llamada",
+                        priority: "Alta",
+                      },
+                      {
+                        client: "Marketing Pro",
+                        time: "16:30",
+                        type: "Email",
+                        priority: "Media",
+                      },
+                      {
+                        client: "StartupXYZ",
+                        time: "Mañana",
+                        type: "Reunión",
+                        priority: "Alta",
+                      },
+                    ].map((followup, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                      >
+                        <div>
+                          <p className="text-sm font-medium text-gray-900">
+                            {followup.client}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {followup.type} - {followup.time}
+                          </p>
+                        </div>
+                        <Badge
+                          className={`text-xs ${followup.priority === "Alta" ? "bg-red-100 text-red-700" : "bg-yellow-100 text-yellow-700"}`}
+                        >
+                          {followup.priority}
+                        </Badge>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    Programar Follow-up
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Client Success */}
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-green-50 to-emerald-50">
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center">
+                  <Award className="h-5 w-5 text-green-600 mr-2" />
+                  Éxito del Cliente
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div className="p-3 bg-white rounded-lg shadow-sm">
+                      <div className="text-2xl font-bold text-green-600">
+                        98%
+                      </div>
+                      <p className="text-xs text-gray-600">Satisfacción</p>
+                    </div>
+                    <div className="p-3 bg-white rounded-lg shadow-sm">
+                      <div className="text-2xl font-bold text-green-600">
+                        $450K
+                      </div>
+                      <p className="text-xs text-gray-600">Pipeline</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-600">Retención clientes</span>
+                      <span className="font-semibold text-green-600">92%</span>
+                    </div>
+                    <Progress value={92} className="h-2" />
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-600">Upselling éxito</span>
+                      <span className="font-semibold text-green-600">67%</span>
+                    </div>
+                    <Progress value={67} className="h-2" />
+                  </div>
+
+                  <Button className="w-full bg-green-500 hover:bg-green-600 text-white">
+                    <Users className="h-4 w-4 mr-2" />
+                    Ver Clientes
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* CRM Integration Benefits */}
+          <div className="mt-16 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl border border-indigo-100 hover:shadow-lg transition-shadow duration-300">
+                <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center text-white mx-auto mb-4">
+                  <TrendingUp className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Mejora Conversión
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Incrementa un 35% la conversión de leads con seguimiento
+                  automatizado
+                </p>
+              </div>
+
+              <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-100 hover:shadow-lg transition-shadow duration-300">
+                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center text-white mx-auto mb-4">
+                  <Gauge className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Optimiza Pipeline
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Reduce el ciclo de ventas promedio en un 40% con flujos
+                  optimizados
+                </p>
+              </div>
+
+              <div className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100 hover:shadow-lg transition-shadow duration-300">
+                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white mx-auto mb-4">
+                  <Zap className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Automatización
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Ahorra 20+ horas semanales con automatización inteligente
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Enhanced Productivity Tools Integration Section */}
       <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
