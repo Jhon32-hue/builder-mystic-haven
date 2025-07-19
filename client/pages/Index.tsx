@@ -59,6 +59,13 @@ import {
   Link2,
   Cloud,
   Smartphone,
+  ChevronLeft,
+  MousePointer,
+  Workflow,
+  Network,
+  Palette,
+  Code,
+  Boxes,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -68,6 +75,8 @@ export default function Index() {
   const [isVisible, setIsVisible] = useState(false);
   const [dashboardView, setDashboardView] = useState("overview");
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [crmCarouselIndex, setCrmCarouselIndex] = useState(0);
+  const [toolsCarouselIndex, setToolsCarouselIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -81,9 +90,21 @@ export default function Index() {
       setCurrentTime(new Date());
     }, 1000);
 
+    // CRM Carousel auto-play
+    const crmCarousel = setInterval(() => {
+      setCrmCarouselIndex((prevIndex) => (prevIndex + 1) % 6);
+    }, 3000);
+
+    // Tools Carousel auto-play
+    const toolsCarousel = setInterval(() => {
+      setToolsCarouselIndex((prevIndex) => (prevIndex + 1) % 5);
+    }, 3500);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       clearInterval(timer);
+      clearInterval(crmCarousel);
+      clearInterval(toolsCarousel);
     };
   }, []);
 
@@ -271,6 +292,33 @@ export default function Index() {
     { name: "Freshworks", logo: "FW", color: "bg-purple-500" },
   ];
 
+  const productivityTools = [
+    {
+      name: "Google Calendar",
+      logo: "GC",
+      color: "bg-blue-600",
+      icon: Calendar,
+    },
+    { name: "Zapier", logo: "ZP", color: "bg-orange-600", icon: Zap },
+    { name: "Slack", logo: "SL", color: "bg-purple-600", icon: MessageSquare },
+    { name: "Trello", logo: "TR", color: "bg-blue-500", icon: Layers },
+    { name: "ClickUp", logo: "CU", color: "bg-pink-500", icon: MousePointer },
+  ];
+
+  const calendarEvents = [
+    { time: "09:00", title: "Standup Meeting", color: "bg-indigo-500" },
+    { time: "11:30", title: "Client Review", color: "bg-green-500" },
+    { time: "14:00", title: "Design Sprint", color: "bg-purple-500" },
+    { time: "16:30", title: "Team Sync", color: "bg-orange-500" },
+  ];
+
+  const analyticsData = [
+    { label: "Tareas por día", value: 12, trend: "+8%" },
+    { label: "Tiempo promedio", value: "3.2h", trend: "-15%" },
+    { label: "Productividad", value: "94%", trend: "+12%" },
+    { label: "Colaboración", value: "89%", trend: "+5%" },
+  ];
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case "completed":
@@ -299,27 +347,34 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 overflow-x-hidden">
-      {/* Floating Background Elements */}
+      {/* Enhanced Floating Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-indigo-200/20 to-blue-200/20 rounded-full blur-3xl animate-pulse"
+          className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-indigo-200/30 to-blue-200/30 rounded-full blur-3xl animate-pulse"
           style={{ transform: `translateY(${scrollY * 0.2}px)` }}
         />
         <div
-          className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-indigo-200/20 rounded-full blur-3xl animate-pulse"
+          className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse"
           style={{ transform: `translateY(${scrollY * -0.1}px)` }}
+        />
+        <div
+          className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-br from-green-200/20 to-teal-200/20 rounded-full blur-2xl animate-pulse"
+          style={{
+            transform: `translateY(${scrollY * 0.15}px)`,
+            animationDelay: "2s",
+          }}
         />
       </div>
 
-      {/* Navigation */}
-      <nav className="border-b bg-white/90 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 hover:bg-white/95">
+      {/* Enhanced Navigation */}
+      <nav className="border-b bg-white/95 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 hover:bg-white/98 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div
                 className={`flex-shrink-0 flex items-center transform transition-all duration-700 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
               >
-                <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:rotate-3">
+                <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:rotate-6">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
                 <span className="ml-3 text-4xl font-black text-gray-900 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent leading-10">
@@ -375,7 +430,7 @@ export default function Index() {
           </div>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden border-t bg-white/95 backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
+          <div className="md:hidden border-t bg-white/98 backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {["Características", "Precios", "Equipos", "Integraciones"].map(
                 (item) => (
@@ -406,12 +461,12 @@ export default function Index() {
         )}
       </nav>
 
-      {/* Hero Section */}
+      {/* Enhanced Hero Section */}
       <section className="relative overflow-hidden py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Badge
-              className={`mb-6 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 border-indigo-200 hover:bg-gradient-to-r hover:from-indigo-100 hover:to-blue-100 transition-all duration-500 transform hover:scale-105 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+              className={`mb-8 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 border-indigo-200 hover:bg-gradient-to-r hover:from-indigo-100 hover:to-blue-100 transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
               style={{ transitionDelay: "200ms" }}
             >
               <Sparkles className="mr-2 h-4 w-4" />
@@ -419,7 +474,7 @@ export default function Index() {
             </Badge>
 
             <h1
-              className={`text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
+              className={`text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
               style={{ transitionDelay: "300ms" }}
             >
               El espacio colaborativo{" "}
@@ -431,14 +486,15 @@ export default function Index() {
 
             <p
               className={`text-xl md:text-2xl text-gray-600 mb-10 max-w-6xl mx-auto leading-relaxed text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-              style={{ transitionDelay: "400ms", lineHeight: "30px" }}
+              style={{ transitionDelay: "400ms", lineHeight: "32px" }}
             >
               Desde startups ágiles hasta agencias, equipos remotos y
-              freelancers, <strong>Taskly</strong> te proporciona el entorno
-              perfecto para gestionar tareas, colaborar y optimizar tu flujo de
-              trabajo. Adaptado a cada tipo de equipo, con herramientas
-              poderosas, automatización y completa integración de CRM
-              empresarial. Todo lo que necesitas, en un solo lugar.
+              freelancers, <strong className="text-indigo-600">Taskly</strong>{" "}
+              te proporciona el entorno perfecto para gestionar tareas,
+              colaborar y optimizar tu flujo de trabajo. Adaptado a cada tipo de
+              equipo, con herramientas poderosas, automatización y completa
+              integración de CRM empresarial. Todo lo que necesitas, en un solo
+              lugar.
             </p>
 
             <div
@@ -447,7 +503,7 @@ export default function Index() {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-8 py-4 text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 group"
+                className="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-8 py-4 text-lg shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 group"
               >
                 <Rocket className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
                 Comenzar gratis
@@ -471,16 +527,22 @@ export default function Index() {
             className={`relative transform transition-all duration-1200 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"}`}
             style={{ transitionDelay: "700ms" }}
           >
-            {/* Professional Dashboard Container */}
+            {/* Enhanced Dashboard Container */}
             <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden hover:shadow-3xl transition-all duration-500">
               {/* Enhanced Dashboard Header */}
               <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-4 border-b border-gray-200">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-red-400 rounded-full hover:bg-red-500 transition-colors duration-300 cursor-pointer"></div>
-                      <div className="w-3 h-3 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors duration-300 cursor-pointer"></div>
-                      <div className="w-3 h-3 bg-green-400 rounded-full hover:bg-green-500 transition-colors duration-300 cursor-pointer"></div>
+                      <div className="w-3 h-3 bg-red-400 rounded-full hover:bg-red-500 transition-colors duration-300 cursor-pointer animate-pulse"></div>
+                      <div
+                        className="w-3 h-3 bg-yellow-400 rounded-full hover:bg-yellow-500 transition-colors duration-300 cursor-pointer animate-pulse"
+                        style={{ animationDelay: "0.5s" }}
+                      ></div>
+                      <div
+                        className="w-3 h-3 bg-green-400 rounded-full hover:bg-green-500 transition-colors duration-300 cursor-pointer animate-pulse"
+                        style={{ animationDelay: "1s" }}
+                      ></div>
                     </div>
                     <div className="text-lg font-semibold text-gray-700">
                       Taskly Professional Dashboard
@@ -497,16 +559,24 @@ export default function Index() {
                         En línea • 47 usuarios
                       </span>
                     </div>
-                    <Button size="sm" variant="ghost" className="p-2">
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="p-2 hover:bg-gray-100"
+                    >
                       <Bell className="h-4 w-4" />
                     </Button>
-                    <Button size="sm" variant="ghost" className="p-2">
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="p-2 hover:bg-gray-100"
+                    >
                       <Settings className="h-4 w-4" />
                     </Button>
                   </div>
                 </div>
 
-                {/* Professional Dashboard Navigation */}
+                {/* Enhanced Dashboard Navigation */}
                 <div className="flex items-center justify-between mt-4">
                   <div className="flex items-center space-x-1">
                     {dashboardViews.map((view) => (
@@ -519,7 +589,7 @@ export default function Index() {
                         onClick={() => setDashboardView(view.id)}
                         className={`transition-all duration-300 ${
                           dashboardView === view.id
-                            ? "bg-indigo-500 text-white shadow-lg"
+                            ? "bg-indigo-500 text-white shadow-lg transform scale-105"
                             : "hover:bg-gray-100"
                         }`}
                       >
@@ -544,7 +614,7 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Professional Dashboard Content */}
+              {/* Enhanced Dashboard Content */}
               <div className="p-6 bg-gradient-to-br from-indigo-50/30 via-white to-blue-50/30 min-h-[700px]">
                 {dashboardView === "overview" && (
                   <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
@@ -553,17 +623,17 @@ export default function Index() {
                       {projectStats.map((stat, index) => (
                         <Card
                           key={index}
-                          className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group bg-white/80 backdrop-blur-sm"
+                          className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group bg-white/90 backdrop-blur-sm"
                         >
                           <CardContent className="p-4">
                             <div className="flex items-center justify-between mb-3">
-                              <div className="p-2 bg-gray-50 rounded-lg">
+                              <div className="p-2 bg-gray-50 rounded-lg group-hover:bg-indigo-50 transition-colors duration-300">
                                 <stat.icon
-                                  className={`h-5 w-5 ${stat.color}`}
+                                  className={`h-5 w-5 ${stat.color} group-hover:scale-110 transition-transform duration-300`}
                                 />
                               </div>
                               <Badge
-                                className={`text-xs ${stat.trend === "up" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}
+                                className={`text-xs ${stat.trend === "up" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"} animate-pulse`}
                               >
                                 {stat.change}
                               </Badge>
@@ -583,7 +653,7 @@ export default function Index() {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                       {/* Enhanced Recent Tasks */}
                       <div className="lg:col-span-2">
-                        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
                           <CardHeader className="flex flex-row items-center justify-between pb-4">
                             <CardTitle className="text-lg font-semibold">
                               Tareas Recientes
@@ -604,16 +674,20 @@ export default function Index() {
                           </CardHeader>
                           <CardContent>
                             <div className="space-y-3">
-                              {recentTasks.map((task) => (
+                              {recentTasks.map((task, index) => (
                                 <div
                                   key={task.id}
-                                  className="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 group border border-gray-100"
+                                  className="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-all duration-300 group border border-gray-100 hover:shadow-md transform hover:scale-[1.02]"
+                                  style={{ animationDelay: `${index * 100}ms` }}
                                 >
                                   <div className="flex-shrink-0">
                                     {task.status === "completed" ? (
-                                      <CheckCircle className="h-5 w-5 text-green-500" />
+                                      <CheckCircle className="h-5 w-5 text-green-500 animate-pulse" />
                                     ) : task.status === "in-progress" ? (
-                                      <Circle className="h-5 w-5 text-indigo-500" />
+                                      <Circle
+                                        className="h-5 w-5 text-indigo-500 animate-spin"
+                                        style={{ animationDuration: "3s" }}
+                                      />
                                     ) : (
                                       <Circle className="h-5 w-5 text-gray-400" />
                                     )}
@@ -666,7 +740,7 @@ export default function Index() {
                       {/* Enhanced Team & Projects Sidebar */}
                       <div className="space-y-6">
                         {/* Enhanced Team Members */}
-                        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
                           <CardHeader className="pb-4">
                             <CardTitle className="text-lg font-semibold">
                               Equipo Activo
@@ -677,20 +751,21 @@ export default function Index() {
                               {teamMembers.map((member, index) => (
                                 <div
                                   key={index}
-                                  className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                                  className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-all duration-300 border border-gray-100 hover:shadow-md transform hover:scale-[1.02]"
+                                  style={{ animationDelay: `${index * 150}ms` }}
                                 >
                                   <div className="relative">
                                     <div
-                                      className={`w-8 h-8 ${member.color} rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm`}
+                                      className={`w-8 h-8 ${member.color} rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm animate-pulse`}
                                     >
                                       {member.avatar}
                                     </div>
                                     <div
                                       className={`absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2 border-white ${
                                         member.status === "online"
-                                          ? "bg-green-400"
+                                          ? "bg-green-400 animate-pulse"
                                           : member.status === "away"
-                                            ? "bg-yellow-400"
+                                            ? "bg-yellow-400 animate-pulse"
                                             : "bg-gray-400"
                                       }`}
                                     />
@@ -706,7 +781,7 @@ export default function Index() {
                                   <Button
                                     size="sm"
                                     variant="ghost"
-                                    className="p-1"
+                                    className="p-1 hover:bg-indigo-50"
                                   >
                                     <MessageSquare className="h-4 w-4" />
                                   </Button>
@@ -717,7 +792,7 @@ export default function Index() {
                         </Card>
 
                         {/* Enhanced Active Projects */}
-                        <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
                           <CardHeader className="pb-4">
                             <CardTitle className="text-lg font-semibold">
                               Proyectos Activos
@@ -728,12 +803,13 @@ export default function Index() {
                               {projects.map((project, index) => (
                                 <div
                                   key={index}
-                                  className="space-y-3 p-3 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors"
+                                  className="space-y-3 p-3 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:shadow-md transform hover:scale-[1.02]"
+                                  style={{ animationDelay: `${index * 200}ms` }}
                                 >
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center space-x-2">
                                       <div
-                                        className={`w-3 h-3 ${project.color} rounded-full`}
+                                        className={`w-3 h-3 ${project.color} rounded-full animate-pulse`}
                                       />
                                       <span className="text-sm font-medium text-gray-900">
                                         {project.name}
@@ -773,7 +849,192 @@ export default function Index() {
                   </div>
                 )}
 
-                {/* Other dashboard views remain the same but with enhanced styling */}
+                {/* Enhanced Calendar View */}
+                {dashboardView === "calendar" && (
+                  <div className="animate-in slide-in-from-right-4 duration-500">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                      <div className="lg:col-span-2">
+                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm h-96">
+                          <CardHeader>
+                            <CardTitle className="text-lg flex items-center justify-between">
+                              <div className="flex items-center space-x-4">
+                                <Calendar className="h-5 w-5 text-indigo-600" />
+                                Marzo 2024
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <Button size="sm" variant="ghost">
+                                  <ChevronLeft className="h-4 w-4" />
+                                </Button>
+                                <Button size="sm" variant="ghost">
+                                  <ChevronRight className="h-4 w-4" />
+                                </Button>
+                              </div>
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="grid grid-cols-7 gap-2 mb-4">
+                              {[
+                                "Dom",
+                                "Lun",
+                                "Mar",
+                                "Mié",
+                                "Jue",
+                                "Vie",
+                                "Sáb",
+                              ].map((day) => (
+                                <div
+                                  key={day}
+                                  className="text-center text-sm font-medium text-gray-500 py-2"
+                                >
+                                  {day}
+                                </div>
+                              ))}
+                            </div>
+                            <div className="grid grid-cols-7 gap-2">
+                              {Array.from({ length: 35 }).map((_, index) => (
+                                <div
+                                  key={index}
+                                  className={`aspect-square flex items-center justify-center text-sm rounded-lg transition-all duration-300 cursor-pointer ${
+                                    index === 15
+                                      ? "bg-indigo-500 text-white shadow-lg transform scale-110"
+                                      : index % 7 === 0 || index % 7 === 6
+                                        ? "text-gray-400 hover:bg-gray-100"
+                                        : "text-gray-700 hover:bg-indigo-50 hover:text-indigo-700"
+                                  }`}
+                                >
+                                  {index < 31 ? index + 1 : ""}
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+
+                      <div>
+                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
+                          <CardHeader>
+                            <CardTitle className="text-lg">
+                              Eventos Hoy
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="space-y-3">
+                              {calendarEvents.map((event, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-all duration-300"
+                                  style={{ animationDelay: `${index * 100}ms` }}
+                                >
+                                  <div
+                                    className={`w-3 h-3 ${event.color} rounded-full animate-pulse`}
+                                  />
+                                  <div className="flex-1">
+                                    <p className="text-sm font-medium text-gray-900">
+                                      {event.title}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                      {event.time}
+                                    </p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Enhanced Analytics View */}
+                {dashboardView === "analytics" && (
+                  <div className="animate-in slide-in-from-right-4 duration-500">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center">
+                            <BarChart3 className="h-5 w-5 text-indigo-600 mr-2" />
+                            Productividad del Equipo
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-4">
+                            {analyticsData.map((metric, index) => (
+                              <div
+                                key={index}
+                                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+                                style={{ animationDelay: `${index * 100}ms` }}
+                              >
+                                <div>
+                                  <p className="text-sm text-gray-600">
+                                    {metric.label}
+                                  </p>
+                                  <p className="text-lg font-semibold text-gray-900">
+                                    {metric.value}
+                                  </p>
+                                </div>
+                                <Badge className="bg-green-100 text-green-700">
+                                  {metric.trend}
+                                </Badge>
+                              </div>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center">
+                            <PieChart className="h-5 w-5 text-emerald-600 mr-2" />
+                            Distribución de Tareas
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="h-64 flex items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg">
+                            <div className="text-center">
+                              <div className="grid grid-cols-2 gap-4 mb-4">
+                                <div className="p-3 bg-white rounded-lg shadow-sm">
+                                  <p className="text-sm text-gray-600">
+                                    Completadas
+                                  </p>
+                                  <p className="text-xl font-bold text-emerald-600">
+                                    67%
+                                  </p>
+                                </div>
+                                <div className="p-3 bg-white rounded-lg shadow-sm">
+                                  <p className="text-sm text-gray-600">
+                                    En progreso
+                                  </p>
+                                  <p className="text-xl font-bold text-indigo-600">
+                                    23%
+                                  </p>
+                                </div>
+                                <div className="p-3 bg-white rounded-lg shadow-sm">
+                                  <p className="text-sm text-gray-600">
+                                    Pendientes
+                                  </p>
+                                  <p className="text-xl font-bold text-gray-600">
+                                    10%
+                                  </p>
+                                </div>
+                                <div className="p-3 bg-white rounded-lg shadow-sm">
+                                  <p className="text-sm text-gray-600">
+                                    Retrasadas
+                                  </p>
+                                  <p className="text-xl font-bold text-red-600">
+                                    0%
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+                )}
+
+                {/* Enhanced Kanban View */}
                 {dashboardView === "kanban" && (
                   <div className="animate-in slide-in-from-right-4 duration-500">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-96">
@@ -781,7 +1042,7 @@ export default function Index() {
                         (column, index) => (
                           <Card
                             key={index}
-                            className="border-0 shadow-lg bg-white/80 backdrop-blur-sm"
+                            className="border-0 shadow-lg bg-white/90 backdrop-blur-sm"
                           >
                             <CardHeader className="pb-3">
                               <CardTitle className="text-lg flex items-center justify-between">
@@ -797,13 +1058,16 @@ export default function Index() {
                               }).map((_, taskIndex) => (
                                 <Card
                                   key={taskIndex}
-                                  className="p-3 hover:shadow-md transition-shadow cursor-pointer border border-gray-100"
+                                  className="p-3 hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-100 hover:border-indigo-200 transform hover:scale-[1.02]"
+                                  style={{
+                                    animationDelay: `${taskIndex * 100}ms`,
+                                  }}
                                 >
                                   <p className="text-sm font-medium mb-2">
                                     Tarea de ejemplo {taskIndex + 1}
                                   </p>
                                   <div className="flex items-center justify-between">
-                                    <div className="w-6 h-6 bg-indigo-500 rounded-full" />
+                                    <div className="w-6 h-6 bg-indigo-500 rounded-full animate-pulse" />
                                     <Badge className="text-xs">Alta</Badge>
                                   </div>
                                 </Card>
@@ -825,11 +1089,11 @@ export default function Index() {
       <section id="equipos" className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">
               Diseñado para todo tipo de equipo
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto">
-              TaskFlow se adapta perfectamente a tu forma de trabajar,
+              Taskly se adapta perfectamente a tu forma de trabajar,
               independientemente del tamaño o tipo de tu organización
             </p>
           </div>
@@ -839,6 +1103,9 @@ export default function Index() {
               <Card
                 key={index}
                 className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 group overflow-hidden"
+                style={{
+                  animationDelay: `${index * 200}ms`,
+                }}
               >
                 <CardHeader className="relative pb-6">
                   <div className="flex items-start space-x-4">
@@ -860,7 +1127,7 @@ export default function Index() {
                     {team.features.map((feature, featureIndex) => (
                       <Badge
                         key={featureIndex}
-                        className="bg-gray-100 text-gray-700 justify-center py-2 text-xs"
+                        className="bg-gray-100 text-gray-700 justify-center py-2 text-xs hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300"
                       >
                         {feature}
                       </Badge>
@@ -873,52 +1140,61 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CRM Integrations Section */}
+      {/* Enhanced CRM Integrations Section */}
       <section
         id="integraciones"
         className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Integraciones CRM Empresariales
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Conecta con Taskly
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Conecta TaskFlow con tu CRM favorito y sincroniza clientes,
-              oportunidades y datos de ventas en tiempo real
+              Integra tu CRM favorito y sincroniza clientes, oportunidades y
+              datos de ventas en tiempo real
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
-            {crmIntegrations.map((integration, index) => (
-              <Card
-                key={index}
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group text-center p-6"
-              >
-                <div
-                  className={`w-12 h-12 ${integration.color} rounded-lg flex items-center justify-center text-white font-bold text-lg mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  {integration.logo}
-                </div>
-                <p className="text-sm font-medium text-gray-700 group-hover:text-indigo-600 transition-colors duration-300">
-                  {integration.name}
-                </p>
-              </Card>
-            ))}
+          {/* Animated CRM Carousel */}
+          <div className="relative mb-12 overflow-hidden">
+            <div
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{
+                transform: `translateX(-${crmCarouselIndex * (100 / 6)}%)`,
+              }}
+            >
+              {[...crmIntegrations, ...crmIntegrations].map(
+                (integration, index) => (
+                  <div key={index} className="w-1/6 flex-shrink-0 px-3">
+                    <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group text-center p-6">
+                      <div
+                        className={`w-12 h-12 ${integration.color} rounded-lg flex items-center justify-center text-white font-bold text-lg mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        {integration.logo}
+                      </div>
+                      <p className="text-sm font-medium text-gray-700 group-hover:text-indigo-600 transition-colors duration-300">
+                        {integration.name}
+                      </p>
+                    </Card>
+                  </div>
+                ),
+              )}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg text-center p-6">
+            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-shadow duration-300">
               <Database className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 Sincronización Bidireccional
               </h3>
               <p className="text-gray-600">
-                Los datos se actualizan automáticamente entre TaskFlow y tu CRM
+                Los datos se actualizan automáticamente entre Taskly y tu CRM
               </p>
             </Card>
 
-            <Card className="border-0 shadow-lg text-center p-6">
+            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-shadow duration-300">
               <Zap className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 Automatización Inteligente
@@ -928,7 +1204,7 @@ export default function Index() {
               </p>
             </Card>
 
-            <Card className="border-0 shadow-lg text-center p-6">
+            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-shadow duration-300">
               <BarChart3 className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 Reportes Unificados
@@ -941,11 +1217,112 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="características" className="py-20 bg-white relative">
+      {/* New Productivity Tools Integration Section */}
+      <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Herramientas de Productividad
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Conecta con las herramientas que ya usas y potencia tu flujo de
+              trabajo colaborativo
+            </p>
+          </div>
+
+          {/* Animated Tools Carousel */}
+          <div className="relative mb-12 overflow-hidden">
+            <div
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{
+                transform: `translateX(-${toolsCarouselIndex * (100 / 5)}%)`,
+              }}
+            >
+              {[...productivityTools, ...productivityTools].map(
+                (tool, index) => (
+                  <div key={index} className="w-1/5 flex-shrink-0 px-3">
+                    <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group text-center p-8">
+                      <div
+                        className={`w-16 h-16 ${tool.color} rounded-xl flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <tool.icon className="h-8 w-8" />
+                      </div>
+                      <p className="text-base font-semibold text-gray-700 group-hover:text-indigo-600 transition-colors duration-300">
+                        {tool.name}
+                      </p>
+                    </Card>
+                  </div>
+                ),
+              )}
+            </div>
+          </div>
+
+          {/* Collaborative Work Illustrations */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4">
+                <Workflow className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">
+                Flujos Automatizados
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Conecta procesos entre diferentes herramientas
+              </p>
+            </Card>
+
+            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4">
+                <Network className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">
+                Colaboración en Red
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Conecta equipos distribuidos globalmente
+              </p>
+            </Card>
+
+            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4">
+                <Palette className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">
+                Diseño Colaborativo
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Feedback en tiempo real en proyectos creativos
+              </p>
+            </Card>
+
+            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4">
+                <Code className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Desarrollo Ágil</h3>
+              <p className="text-gray-600 text-sm">
+                Integra repositorios y CI/CD pipelines
+              </p>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Button className="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-8 py-3 text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <Link2 className="mr-2 h-5 w-5" />
+              Ver Todas las Integraciones
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section
+        id="características"
+        className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50 relative"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">
               Funcionalidades avanzadas
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto">
@@ -1044,10 +1421,14 @@ export default function Index() {
             className="absolute bottom-1/4 right-1/3 w-24 h-24 bg-white/10 rounded-full blur-xl animate-pulse"
             style={{ animationDelay: "1s" }}
           />
+          <div
+            className="absolute top-3/4 left-1/2 w-40 h-40 bg-white/5 rounded-full blur-2xl animate-pulse"
+            style={{ animationDelay: "2s" }}
+          />
         </div>
 
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-black mb-6">
             ¿Listo para revolucionar tu forma de trabajar?
           </h2>
           <p className="text-xl mb-8 text-indigo-100">
@@ -1200,7 +1581,7 @@ export default function Index() {
               <p className="text-gray-400 mb-4 md:mb-0">
                 &copy; 2024 Taskly. Todos los derechos reservados.
               </p>
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-6 ml-auto">
                 <a
                   href="#"
                   className="text-gray-400 hover:text-white transition-colors duration-300"
