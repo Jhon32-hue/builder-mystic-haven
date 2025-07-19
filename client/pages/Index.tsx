@@ -225,7 +225,7 @@ export default function Index() {
       assignee: "MG",
       progress: 100,
       dueDate: "Hoy",
-      tags: ["UI/UX", "Revisi��n"],
+      tags: ["UI/UX", "Revisión"],
     },
     {
       id: 2,
@@ -1726,6 +1726,32 @@ export default function Index() {
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-200 via-blue-300 to-green-300 opacity-30" />
               <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-blue-500 to-green-500 opacity-60 animate-pulse" />
+              {/* Flowing data particles */}
+              <div
+                className="absolute top-1/2 left-0 w-4 h-4 bg-indigo-400 rounded-full opacity-70 animate-ping"
+                style={{ animationDelay: "0s" }}
+              />
+              <div
+                className="absolute top-1/2 left-1/4 w-3 h-3 bg-blue-400 rounded-full opacity-70 animate-ping"
+                style={{ animationDelay: "1s" }}
+              />
+              <div
+                className="absolute top-1/2 left-2/4 w-4 h-4 bg-purple-400 rounded-full opacity-70 animate-ping"
+                style={{ animationDelay: "2s" }}
+              />
+              <div
+                className="absolute top-1/2 left-3/4 w-3 h-3 bg-green-400 rounded-full opacity-70 animate-ping"
+                style={{ animationDelay: "3s" }}
+              />
+              {/* Success indicators */}
+              <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
+                <div className="flex items-center space-x-2 animate-bounce">
+                  <CheckCircle className="h-6 w-6 text-green-500" />
+                  <span className="text-xs text-green-600 font-semibold">
+                    +73 Clientes
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Pipeline Stages */}
