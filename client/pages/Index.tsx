@@ -422,9 +422,9 @@ export default function Index() {
               className={`text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
               style={{ transitionDelay: "300ms" }}
             >
-              El espacio colaborativo{" "}
+              El espacio de trabajo inteligente{" "}
               <span className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-blue-600 bg-clip-text text-transparent animate-gradient bg-300% relative">
-                para todo tipo de equipo
+                para equipos y proyectos de cualquier tamaño.
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 via-indigo-600/20 to-blue-600/20 blur-lg opacity-30 animate-pulse" />
               </span>
             </h1>
@@ -433,9 +433,12 @@ export default function Index() {
               className={`text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
               style={{ transitionDelay: "400ms" }}
             >
-              Desde startups hasta agencias, equipos remotos y freelancers.
-              TaskFlow se adapta a tu forma de trabajar con herramientas
-              inteligentes y integraciones CRM empresariales.
+              Desde startups ágiles hasta agencias, equipos remotos y
+              freelancers, <strong>Taskly</strong> te proporciona el entorno
+              perfecto para gestionar tareas, colaborar y optimizar tu flujo de
+              trabajo. Adaptado a cada tipo de equipo, con herramientas
+              poderosas, automatización y completa integración de CRM
+              empresarial. Todo lo que necesitas, en un solo lugar.
             </p>
 
             <div
@@ -1048,8 +1051,8 @@ export default function Index() {
             ¿Listo para revolucionar tu forma de trabajar?
           </h2>
           <p className="text-xl mb-8 text-indigo-100">
-            Únete a miles de equipos que ya han transformado su productividad
-            con TaskFlow
+            Comienza con Taskly hoy. Crea tu espacio de trabajo ideal y conecta
+            con tu equipo en segundos.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
