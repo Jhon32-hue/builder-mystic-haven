@@ -1821,7 +1821,7 @@ export default function Index() {
                   )}
 
                   <Card
-                    className={`border-2 ${stage.borderColor} shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 group ${stage.bgColor}/30 backdrop-blur-sm`}
+                    className={`border-2 ${stage.borderColor} shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group ${stage.bgColor}/30 backdrop-blur-sm relative overflow-hidden cursor-pointer`}
                   >
                     <CardContent className="p-6 text-center">
                       <div
