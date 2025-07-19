@@ -1219,11 +1219,6 @@ export default function Index() {
                 >
                   Cookies
                 </a>
-                <div className="flex items-center space-x-2">
-                  <span className="text-gray-400">Hecho con</span>
-                  <span className="text-red-400 animate-pulse">❤️</span>
-                  <span className="text-gray-400">en España</span>
-                </div>
               </div>
             </div>
           </div>
