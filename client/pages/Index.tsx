@@ -1184,21 +1184,21 @@ export default function Index() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-indigo-400" />
-                <span className="text-gray-400">contacto@taskflow.com</span>
+                <span className="text-gray-400">contacto@taskly.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-indigo-400" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+57 3044897957</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Globe className="h-5 w-5 text-indigo-400" />
-                <span className="text-gray-400">Madrid, España</span>
+                <span className="text-gray-400">Bucaramanga, Colombia</span>
               </div>
             </div>
 
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-400 mb-4 md:mb-0">
-                &copy; 2024 TaskFlow. Todos los derechos reservados.
+                &copy; 2024 Taskly. Todos los derechos reservados.
               </p>
               <div className="flex items-center space-x-6">
                 <a
