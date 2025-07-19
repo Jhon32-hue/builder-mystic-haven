@@ -323,7 +323,7 @@ export default function Index() {
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
                 <span className="ml-3 text-xl font-bold text-gray-900 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                  TaskFlow
+                  Taskly
                 </span>
               </div>
               <div className="hidden md:ml-8 md:flex md:space-x-1">
