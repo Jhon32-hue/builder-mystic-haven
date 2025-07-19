@@ -1823,7 +1823,9 @@ export default function Index() {
                   <Card
                     className={`border-2 ${stage.borderColor} shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group ${stage.bgColor}/30 backdrop-blur-sm relative overflow-hidden cursor-pointer`}
                   >
-                    <CardContent className="p-6 text-center">
+                    <CardContent className="p-6 text-center relative">
+                      {/* Hover overlay effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                       <div
                         className={`w-16 h-16 ${stage.color} rounded-xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                       >
