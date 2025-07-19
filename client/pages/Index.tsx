@@ -483,7 +483,7 @@ export default function Index() {
                       <div className="w-3 h-3 bg-green-400 rounded-full hover:bg-green-500 transition-colors duration-300 cursor-pointer"></div>
                     </div>
                     <div className="text-lg font-semibold text-gray-700">
-                      TaskFlow Professional Dashboard
+                      Taskly Professional Dashboard
                     </div>
                   </div>
 
@@ -1085,11 +1085,11 @@ export default function Index() {
                 <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
-                <span className="ml-3 text-2xl font-bold">TaskFlow</span>
+                <span className="ml-3 text-2xl font-bold">Taskly</span>
               </div>
               <p className="text-gray-400 mb-6 text-lg leading-relaxed max-w-md">
                 La plataforma de gestión colaborativa más avanzada para equipos
-                modernos. Desde startups hasta empresas, TaskFlow se adapta a tu
+                modernos. Desde startups hasta empresas, Taskly se adapta a tu
                 forma de trabajar.
               </p>
               <div className="flex space-x-4">
