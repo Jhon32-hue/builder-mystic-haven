@@ -66,6 +66,24 @@ import {
   Palette,
   Code,
   Boxes,
+  Video,
+  Hash,
+  AtSign,
+  Send,
+  Share2,
+  Download,
+  Upload,
+  FolderOpen,
+  Files,
+  Timer,
+  Gauge,
+  Percent,
+  Eye,
+  Heart,
+  Bookmark,
+  Flag,
+  Repeat,
+  RotateCcw,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -77,6 +95,8 @@ export default function Index() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [crmCarouselIndex, setCrmCarouselIndex] = useState(0);
   const [toolsCarouselIndex, setToolsCarouselIndex] = useState(0);
+  const [calendarView, setCalendarView] = useState("month");
+  const [selectedDate, setSelectedDate] = useState(15);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -115,6 +135,13 @@ export default function Index() {
     { id: "analytics", label: "Analytics", icon: PieChart },
   ];
 
+  const calendarViews = [
+    { id: "month", label: "Mes" },
+    { id: "week", label: "Semana" },
+    { id: "day", label: "Día" },
+    { id: "agenda", label: "Agenda" },
+  ];
+
   const teamMembers = [
     {
       name: "María García",
@@ -122,6 +149,7 @@ export default function Index() {
       avatar: "MG",
       status: "online",
       color: "bg-emerald-500",
+      lastSeen: "Activo ahora",
     },
     {
       name: "Carlos Ruiz",
@@ -129,6 +157,7 @@ export default function Index() {
       avatar: "CR",
       status: "away",
       color: "bg-blue-500",
+      lastSeen: "Hace 5 min",
     },
     {
       name: "Ana López",
@@ -136,6 +165,7 @@ export default function Index() {
       avatar: "AL",
       status: "online",
       color: "bg-purple-500",
+      lastSeen: "Activo ahora",
     },
     {
       name: "Juan Pérez",
@@ -143,6 +173,7 @@ export default function Index() {
       avatar: "JP",
       status: "offline",
       color: "bg-orange-500",
+      lastSeen: "Hace 2 hrs",
     },
   ];
 
@@ -154,6 +185,7 @@ export default function Index() {
       trend: "up",
       icon: CheckSquare,
       color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
     },
     {
       label: "Proyectos Activos",
@@ -162,6 +194,7 @@ export default function Index() {
       trend: "up",
       icon: Briefcase,
       color: "text-indigo-600",
+      bgColor: "bg-indigo-50",
     },
     {
       label: "Miembros del Equipo",
@@ -170,6 +203,7 @@ export default function Index() {
       trend: "up",
       icon: Users,
       color: "text-purple-600",
+      bgColor: "bg-purple-50",
     },
     {
       label: "Tiempo Promedio",
@@ -178,6 +212,7 @@ export default function Index() {
       trend: "up",
       icon: Clock,
       color: "text-orange-600",
+      bgColor: "bg-orange-50",
     },
   ];
 
@@ -189,6 +224,8 @@ export default function Index() {
       priority: "high",
       assignee: "MG",
       progress: 100,
+      dueDate: "Hoy",
+      tags: ["UI/UX", "Revisión"],
     },
     {
       id: 2,
@@ -197,6 +234,8 @@ export default function Index() {
       priority: "high",
       assignee: "CR",
       progress: 75,
+      dueDate: "Mañana",
+      tags: ["Backend", "Seguridad"],
     },
     {
       id: 3,
@@ -205,6 +244,8 @@ export default function Index() {
       priority: "medium",
       assignee: "AL",
       progress: 45,
+      dueDate: "Mar 20",
+      tags: ["Diseño", "Wireframes"],
     },
     {
       id: 4,
@@ -213,6 +254,8 @@ export default function Index() {
       priority: "low",
       assignee: "JP",
       progress: 0,
+      dueDate: "Mar 25",
+      tags: ["DevOps", "Testing"],
     },
     {
       id: 5,
@@ -221,6 +264,8 @@ export default function Index() {
       priority: "medium",
       assignee: "CR",
       progress: 0,
+      dueDate: "Mar 22",
+      tags: ["Documentación", "API"],
     },
   ];
 
@@ -231,6 +276,8 @@ export default function Index() {
       deadline: "15 Mar",
       status: "on-track",
       color: "bg-emerald-500",
+      members: 8,
+      tasks: { completed: 24, total: 30 },
     },
     {
       name: "Mobile App Redesign",
@@ -238,6 +285,8 @@ export default function Index() {
       deadline: "22 Mar",
       status: "at-risk",
       color: "bg-yellow-500",
+      members: 5,
+      tasks: { completed: 15, total: 25 },
     },
     {
       name: "Analytics Dashboard",
@@ -245,6 +294,8 @@ export default function Index() {
       deadline: "8 Mar",
       status: "ahead",
       color: "bg-indigo-500",
+      members: 6,
+      tasks: { completed: 18, total: 20 },
     },
   ];
 
@@ -298,25 +349,135 @@ export default function Index() {
       logo: "GC",
       color: "bg-blue-600",
       icon: Calendar,
+      description: "Sincronización perfecta con calendarios",
+      category: "Calendario",
     },
-    { name: "Zapier", logo: "ZP", color: "bg-orange-600", icon: Zap },
-    { name: "Slack", logo: "SL", color: "bg-purple-600", icon: MessageSquare },
-    { name: "Trello", logo: "TR", color: "bg-blue-500", icon: Layers },
-    { name: "ClickUp", logo: "CU", color: "bg-pink-500", icon: MousePointer },
+    {
+      name: "Zapier",
+      logo: "ZP",
+      color: "bg-orange-600",
+      icon: Zap,
+      description: "Automatiza flujos de trabajo",
+      category: "Automatización",
+    },
+    {
+      name: "Slack",
+      logo: "SL",
+      color: "bg-purple-600",
+      icon: Hash,
+      description: "Comunicación de equipo en tiempo real",
+      category: "Comunicación",
+    },
+    {
+      name: "Trello",
+      logo: "TR",
+      color: "bg-blue-500",
+      icon: Layers,
+      description: "Gestión visual de proyectos",
+      category: "Proyectos",
+    },
+    {
+      name: "ClickUp",
+      logo: "CU",
+      color: "bg-pink-500",
+      icon: MousePointer,
+      description: "Todo en una plataforma",
+      category: "Productividad",
+    },
+    {
+      name: "Figma",
+      logo: "FG",
+      color: "bg-purple-500",
+      icon: Palette,
+      description: "Diseño colaborativo en tiempo real",
+      category: "Diseño",
+    },
+    {
+      name: "GitHub",
+      logo: "GH",
+      color: "bg-gray-800",
+      icon: GitBranch,
+      description: "Control de versiones y código",
+      category: "Desarrollo",
+    },
+    {
+      name: "Notion",
+      logo: "NT",
+      color: "bg-gray-700",
+      icon: FileText,
+      description: "Documentación y conocimiento",
+      category: "Documentos",
+    },
   ];
 
   const calendarEvents = [
-    { time: "09:00", title: "Standup Meeting", color: "bg-indigo-500" },
-    { time: "11:30", title: "Client Review", color: "bg-green-500" },
-    { time: "14:00", title: "Design Sprint", color: "bg-purple-500" },
-    { time: "16:30", title: "Team Sync", color: "bg-orange-500" },
+    {
+      id: 1,
+      time: "09:00",
+      title: "Standup Meeting",
+      color: "bg-indigo-500",
+      duration: "30 min",
+      attendees: ["MG", "CR", "AL"],
+      type: "meeting",
+    },
+    {
+      id: 2,
+      time: "11:30",
+      title: "Client Review",
+      color: "bg-green-500",
+      duration: "1 hr",
+      attendees: ["MG"],
+      type: "client",
+    },
+    {
+      id: 3,
+      time: "14:00",
+      title: "Design Sprint",
+      color: "bg-purple-500",
+      duration: "2 hrs",
+      attendees: ["AL", "MG"],
+      type: "workshop",
+    },
+    {
+      id: 4,
+      time: "16:30",
+      title: "Team Sync",
+      color: "bg-orange-500",
+      duration: "45 min",
+      attendees: ["MG", "CR", "AL", "JP"],
+      type: "sync",
+    },
   ];
 
   const analyticsData = [
-    { label: "Tareas por día", value: 12, trend: "+8%" },
-    { label: "Tiempo promedio", value: "3.2h", trend: "-15%" },
-    { label: "Productividad", value: "94%", trend: "+12%" },
-    { label: "Colaboración", value: "89%", trend: "+5%" },
+    {
+      label: "Tareas por día",
+      value: 12,
+      trend: "+8%",
+      color: "bg-blue-500",
+      graph: [8, 12, 15, 10, 18, 12, 14],
+    },
+    {
+      label: "Tiempo promedio",
+      value: "3.2h",
+      trend: "-15%",
+      color: "bg-green-500",
+      graph: [4.2, 3.8, 3.5, 3.2, 3.0, 3.2, 3.1],
+    },
+    {
+      label: "Productividad",
+      value: "94%",
+      trend: "+12%",
+      color: "bg-purple-500",
+      graph: [82, 85, 88, 90, 92, 94, 95],
+    },
+    {
+      label: "Colaboración",
+      value: "89%",
+      trend: "+5%",
+      color: "bg-orange-500",
+      graph: [84, 86, 87, 88, 89, 88, 89],
+    },
   ];
 
   const getStatusColor = (status: string) => {
@@ -521,13 +682,13 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Enhanced Professional Dashboard Preview */}
+        {/* Professional Dashboard Preview */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 mt-16">
           <div
             className={`relative transform transition-all duration-1200 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"}`}
             style={{ transitionDelay: "700ms" }}
           >
-            {/* Enhanced Dashboard Container */}
+            {/* Professional Dashboard Container */}
             <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden hover:shadow-3xl transition-all duration-500">
               {/* Enhanced Dashboard Header */}
               <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-4 border-b border-gray-200">
@@ -616,6 +777,7 @@ export default function Index() {
 
               {/* Enhanced Dashboard Content */}
               <div className="p-6 bg-gradient-to-br from-indigo-50/30 via-white to-blue-50/30 min-h-[700px]">
+                {/* Overview Dashboard */}
                 {dashboardView === "overview" && (
                   <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
                     {/* Enhanced Stats Grid */}
@@ -625,11 +787,13 @@ export default function Index() {
                           key={index}
                           className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group bg-white/90 backdrop-blur-sm"
                         >
-                          <CardContent className="p-4">
-                            <div className="flex items-center justify-between mb-3">
-                              <div className="p-2 bg-gray-50 rounded-lg group-hover:bg-indigo-50 transition-colors duration-300">
+                          <CardContent className="p-6">
+                            <div className="flex items-center justify-between mb-4">
+                              <div
+                                className={`p-3 ${stat.bgColor} rounded-xl group-hover:scale-110 transition-transform duration-300`}
+                              >
                                 <stat.icon
-                                  className={`h-5 w-5 ${stat.color} group-hover:scale-110 transition-transform duration-300`}
+                                  className={`h-6 w-6 ${stat.color}`}
                                 />
                               </div>
                               <Badge
@@ -638,7 +802,7 @@ export default function Index() {
                                 {stat.change}
                               </Badge>
                             </div>
-                            <div className="text-2xl font-bold text-gray-900 mb-1">
+                            <div className="text-3xl font-bold text-gray-900 mb-2">
                               {stat.value}
                             </div>
                             <p className="text-sm text-gray-600">
@@ -677,7 +841,7 @@ export default function Index() {
                               {recentTasks.map((task, index) => (
                                 <div
                                   key={task.id}
-                                  className="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-all duration-300 group border border-gray-100 hover:shadow-md transform hover:scale-[1.02]"
+                                  className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-all duration-300 group border border-gray-100 hover:shadow-md transform hover:scale-[1.02]"
                                   style={{ animationDelay: `${index * 100}ms` }}
                                 >
                                   <div className="flex-shrink-0">
@@ -697,13 +861,18 @@ export default function Index() {
                                       <p className="text-sm font-medium text-gray-900 truncate">
                                         {task.title}
                                       </p>
-                                      <Badge
-                                        className={`text-xs ${getPriorityColor(task.priority)}`}
-                                      >
-                                        {task.priority}
-                                      </Badge>
+                                      <div className="flex items-center space-x-2">
+                                        <Badge
+                                          className={`text-xs ${getPriorityColor(task.priority)}`}
+                                        >
+                                          {task.priority}
+                                        </Badge>
+                                        <span className="text-xs text-gray-500">
+                                          {task.dueDate}
+                                        </span>
+                                      </div>
                                     </div>
-                                    <div className="flex items-center space-x-4">
+                                    <div className="flex items-center justify-between mb-2">
                                       <div className="flex items-center space-x-2">
                                         <div className="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-semibold">
                                           {task.assignee}
@@ -712,15 +881,25 @@ export default function Index() {
                                           Asignado
                                         </span>
                                       </div>
-                                      <div className="flex-1">
-                                        <Progress
-                                          value={task.progress}
-                                          className="h-2"
-                                        />
-                                      </div>
                                       <span className="text-xs text-gray-500 font-medium">
                                         {task.progress}%
                                       </span>
+                                    </div>
+                                    <div className="flex items-center justify-between">
+                                      <Progress
+                                        value={task.progress}
+                                        className="h-2 flex-1 mr-4"
+                                      />
+                                      <div className="flex items-center space-x-1">
+                                        {task.tags.map((tag, tagIndex) => (
+                                          <Badge
+                                            key={tagIndex}
+                                            className="text-xs bg-gray-100 text-gray-600"
+                                          >
+                                            {tag}
+                                          </Badge>
+                                        ))}
+                                      </div>
                                     </div>
                                   </div>
                                   <Button
@@ -751,17 +930,17 @@ export default function Index() {
                               {teamMembers.map((member, index) => (
                                 <div
                                   key={index}
-                                  className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-all duration-300 border border-gray-100 hover:shadow-md transform hover:scale-[1.02]"
+                                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-all duration-300 border border-gray-100 hover:shadow-md transform hover:scale-[1.02]"
                                   style={{ animationDelay: `${index * 150}ms` }}
                                 >
                                   <div className="relative">
                                     <div
-                                      className={`w-8 h-8 ${member.color} rounded-full flex items-center justify-center text-white text-xs font-bold shadow-sm animate-pulse`}
+                                      className={`w-10 h-10 ${member.color} rounded-full flex items-center justify-center text-white text-sm font-bold shadow-sm`}
                                     >
                                       {member.avatar}
                                     </div>
                                     <div
-                                      className={`absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2 border-white ${
+                                      className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-white ${
                                         member.status === "online"
                                           ? "bg-green-400 animate-pulse"
                                           : member.status === "away"
@@ -776,6 +955,9 @@ export default function Index() {
                                     </p>
                                     <p className="text-xs text-gray-500">
                                       {member.role}
+                                    </p>
+                                    <p className="text-xs text-gray-400">
+                                      {member.lastSeen}
                                     </p>
                                   </div>
                                   <Button
@@ -803,7 +985,7 @@ export default function Index() {
                               {projects.map((project, index) => (
                                 <div
                                   key={index}
-                                  className="space-y-3 p-3 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:shadow-md transform hover:scale-[1.02]"
+                                  className="space-y-3 p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:shadow-md transform hover:scale-[1.02]"
                                   style={{ animationDelay: `${index * 200}ms` }}
                                 >
                                   <div className="flex items-center justify-between">
@@ -818,6 +1000,13 @@ export default function Index() {
                                     <span className="text-xs text-gray-500 font-medium">
                                       {project.deadline}
                                     </span>
+                                  </div>
+                                  <div className="flex items-center justify-between text-xs text-gray-500">
+                                    <span>
+                                      {project.tasks.completed}/
+                                      {project.tasks.total} tareas
+                                    </span>
+                                    <span>{project.members} miembros</span>
                                   </div>
                                   <Progress
                                     value={project.progress}
@@ -849,29 +1038,61 @@ export default function Index() {
                   </div>
                 )}
 
-                {/* Enhanced Calendar View */}
+                {/* Professional Slack-Style Calendar View */}
                 {dashboardView === "calendar" && (
                   <div className="animate-in slide-in-from-right-4 duration-500">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                      <div className="lg:col-span-2">
-                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm h-96">
-                          <CardHeader>
-                            <CardTitle className="text-lg flex items-center justify-between">
-                              <div className="flex items-center space-x-4">
-                                <Calendar className="h-5 w-5 text-indigo-600" />
-                                Marzo 2024
-                              </div>
-                              <div className="flex items-center space-x-2">
-                                <Button size="sm" variant="ghost">
-                                  <ChevronLeft className="h-4 w-4" />
-                                </Button>
-                                <Button size="sm" variant="ghost">
-                                  <ChevronRight className="h-4 w-4" />
-                                </Button>
-                              </div>
-                            </CardTitle>
-                          </CardHeader>
-                          <CardContent>
+                    {/* Calendar Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center space-x-4">
+                        <h2 className="text-2xl font-bold text-gray-900">
+                          Marzo 2024
+                        </h2>
+                        <div className="flex items-center space-x-1 bg-gray-100 rounded-lg p-1">
+                          {calendarViews.map((view) => (
+                            <Button
+                              key={view.id}
+                              size="sm"
+                              variant={
+                                calendarView === view.id ? "default" : "ghost"
+                              }
+                              onClick={() => setCalendarView(view.id)}
+                              className={`text-xs transition-all duration-200 ${
+                                calendarView === view.id
+                                  ? "bg-white text-gray-900 shadow-sm"
+                                  : "text-gray-600 hover:text-gray-900"
+                              }`}
+                            >
+                              {view.label}
+                            </Button>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Button size="sm" variant="ghost">
+                          <ChevronLeft className="h-4 w-4" />
+                        </Button>
+                        <Button size="sm" variant="ghost">
+                          Hoy
+                        </Button>
+                        <Button size="sm" variant="ghost">
+                          <ChevronRight className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          size="sm"
+                          className="bg-indigo-500 hover:bg-indigo-600 ml-4"
+                        >
+                          <Plus className="h-4 w-4 mr-1" />
+                          Evento
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                      {/* Main Calendar */}
+                      <div className="lg:col-span-3">
+                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
+                          <CardContent className="p-6">
+                            {/* Calendar Header Days */}
                             <div className="grid grid-cols-7 gap-2 mb-4">
                               {[
                                 "Dom",
@@ -884,36 +1105,59 @@ export default function Index() {
                               ].map((day) => (
                                 <div
                                   key={day}
-                                  className="text-center text-sm font-medium text-gray-500 py-2"
+                                  className="text-center text-sm font-semibold text-gray-600 py-3 bg-gray-50 rounded-lg"
                                 >
                                   {day}
                                 </div>
                               ))}
                             </div>
+
+                            {/* Calendar Grid */}
                             <div className="grid grid-cols-7 gap-2">
-                              {Array.from({ length: 35 }).map((_, index) => (
-                                <div
-                                  key={index}
-                                  className={`aspect-square flex items-center justify-center text-sm rounded-lg transition-all duration-300 cursor-pointer ${
-                                    index === 15
-                                      ? "bg-indigo-500 text-white shadow-lg transform scale-110"
-                                      : index % 7 === 0 || index % 7 === 6
-                                        ? "text-gray-400 hover:bg-gray-100"
-                                        : "text-gray-700 hover:bg-indigo-50 hover:text-indigo-700"
-                                  }`}
-                                >
-                                  {index < 31 ? index + 1 : ""}
-                                </div>
-                              ))}
+                              {Array.from({ length: 35 }).map((_, index) => {
+                                const dayNumber = index + 1;
+                                const isToday = dayNumber === 15;
+                                const isSelected = dayNumber === selectedDate;
+                                const hasEvent =
+                                  dayNumber === 15 ||
+                                  dayNumber === 18 ||
+                                  dayNumber === 22;
+
+                                return (
+                                  <div
+                                    key={index}
+                                    onClick={() => setSelectedDate(dayNumber)}
+                                    className={`aspect-square flex flex-col items-center justify-center text-sm rounded-lg transition-all duration-300 cursor-pointer relative ${
+                                      isToday
+                                        ? "bg-indigo-500 text-white shadow-lg font-bold"
+                                        : isSelected
+                                          ? "bg-indigo-100 text-indigo-700 border-2 border-indigo-300"
+                                          : index % 7 === 0 || index % 7 === 6
+                                            ? "text-gray-400 hover:bg-gray-100"
+                                            : "text-gray-700 hover:bg-gray-100"
+                                    }`}
+                                  >
+                                    {dayNumber <= 31 ? dayNumber : ""}
+                                    {hasEvent && (
+                                      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">
+                                        <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              })}
                             </div>
                           </CardContent>
                         </Card>
                       </div>
 
-                      <div>
+                      {/* Calendar Sidebar */}
+                      <div className="space-y-6">
+                        {/* Today's Events */}
                         <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
                           <CardHeader>
-                            <CardTitle className="text-lg">
+                            <CardTitle className="text-lg flex items-center">
+                              <Calendar className="h-5 w-5 text-indigo-600 mr-2" />
                               Eventos Hoy
                             </CardTitle>
                           </CardHeader>
@@ -921,23 +1165,77 @@ export default function Index() {
                             <div className="space-y-3">
                               {calendarEvents.map((event, index) => (
                                 <div
-                                  key={index}
-                                  className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 transition-all duration-300"
+                                  key={event.id}
+                                  className="p-3 rounded-lg border border-gray-100 hover:bg-gray-50 transition-all duration-300 hover:shadow-md"
                                   style={{ animationDelay: `${index * 100}ms` }}
                                 >
-                                  <div
-                                    className={`w-3 h-3 ${event.color} rounded-full animate-pulse`}
-                                  />
-                                  <div className="flex-1">
-                                    <p className="text-sm font-medium text-gray-900">
-                                      {event.title}
-                                    </p>
-                                    <p className="text-xs text-gray-500">
-                                      {event.time}
-                                    </p>
+                                  <div className="flex items-start space-x-3">
+                                    <div
+                                      className={`w-3 h-3 ${event.color} rounded-full mt-2`}
+                                    />
+                                    <div className="flex-1">
+                                      <p className="text-sm font-medium text-gray-900">
+                                        {event.title}
+                                      </p>
+                                      <p className="text-xs text-gray-500 mb-2">
+                                        {event.time} • {event.duration}
+                                      </p>
+                                      <div className="flex items-center space-x-1">
+                                        {event.attendees.map(
+                                          (attendee, idx) => (
+                                            <div
+                                              key={idx}
+                                              className="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center text-white text-xs font-semibold"
+                                            >
+                                              {attendee}
+                                            </div>
+                                          ),
+                                        )}
+                                        <Badge className="text-xs bg-gray-100 text-gray-600 ml-2">
+                                          {event.type}
+                                        </Badge>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        {/* Quick Actions */}
+                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
+                          <CardHeader>
+                            <CardTitle className="text-lg">
+                              Acciones Rápidas
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="space-y-2">
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="w-full justify-start"
+                              >
+                                <Video className="h-4 w-4 mr-2" />
+                                Nueva reunión
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="w-full justify-start"
+                              >
+                                <Calendar className="h-4 w-4 mr-2" />
+                                Programar evento
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="w-full justify-start"
+                              >
+                                <Users className="h-4 w-4 mr-2" />
+                                Invitar miembros
+                              </Button>
                             </div>
                           </CardContent>
                         </Card>
@@ -946,86 +1244,225 @@ export default function Index() {
                   </div>
                 )}
 
-                {/* Enhanced Analytics View */}
+                {/* ClickUp-Style Analytics View */}
                 {dashboardView === "analytics" && (
                   <div className="animate-in slide-in-from-right-4 duration-500">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                      <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center">
-                            <BarChart3 className="h-5 w-5 text-indigo-600 mr-2" />
-                            Productividad del Equipo
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <div className="space-y-4">
-                            {analyticsData.map((metric, index) => (
-                              <div
-                                key={index}
-                                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300"
-                                style={{ animationDelay: `${index * 100}ms` }}
-                              >
-                                <div>
-                                  <p className="text-sm text-gray-600">
+                    <div className="space-y-6">
+                      {/* Analytics Header */}
+                      <div className="flex items-center justify-between">
+                        <h2 className="text-2xl font-bold text-gray-900">
+                          Analytics Dashboard
+                        </h2>
+                        <div className="flex items-center space-x-2">
+                          <Button size="sm" variant="outline">
+                            <Download className="h-4 w-4 mr-2" />
+                            Exportar
+                          </Button>
+                          <Button size="sm" variant="outline">
+                            <Share2 className="h-4 w-4 mr-2" />
+                            Compartir
+                          </Button>
+                          <Button
+                            size="sm"
+                            className="bg-indigo-500 hover:bg-indigo-600"
+                          >
+                            <Plus className="h-4 w-4 mr-2" />
+                            Widget
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Key Metrics */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {analyticsData.map((metric, index) => (
+                          <Card
+                            key={index}
+                            className="border-0 shadow-lg bg-white/90 backdrop-blur-sm hover:shadow-xl transition-shadow duration-300"
+                          >
+                            <CardContent className="p-6">
+                              <div className="flex items-center justify-between mb-4">
+                                <div className="flex items-center space-x-3">
+                                  <div
+                                    className={`w-3 h-3 ${metric.color} rounded-full`}
+                                  />
+                                  <span className="text-sm text-gray-600">
                                     {metric.label}
-                                  </p>
-                                  <p className="text-lg font-semibold text-gray-900">
-                                    {metric.value}
-                                  </p>
+                                  </span>
                                 </div>
-                                <Badge className="bg-green-100 text-green-700">
+                                <Badge className="bg-green-100 text-green-700 text-xs">
                                   {metric.trend}
                                 </Badge>
                               </div>
-                            ))}
-                          </div>
-                        </CardContent>
-                      </Card>
+                              <div className="text-3xl font-bold text-gray-900 mb-4">
+                                {metric.value}
+                              </div>
+                              {/* Mini Chart */}
+                              <div className="flex items-end space-x-1 h-12">
+                                {metric.graph.map((value, idx) => (
+                                  <div
+                                    key={idx}
+                                    className={`${metric.color} rounded-t flex-1 transition-all duration-500 hover:opacity-75`}
+                                    style={{
+                                      height: `${(value / Math.max(...metric.graph)) * 100}%`,
+                                      animationDelay: `${idx * 100}ms`,
+                                    }}
+                                  />
+                                ))}
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
 
+                      {/* Detailed Analytics */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        {/* Team Performance */}
+                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
+                          <CardHeader>
+                            <CardTitle className="text-lg flex items-center">
+                              <Users className="h-5 w-5 text-indigo-600 mr-2" />
+                              Rendimiento del Equipo
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="space-y-4">
+                              {teamMembers.map((member, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+                                >
+                                  <div className="flex items-center space-x-3">
+                                    <div
+                                      className={`w-8 h-8 ${member.color} rounded-full flex items-center justify-center text-white text-xs font-bold`}
+                                    >
+                                      {member.avatar}
+                                    </div>
+                                    <div>
+                                      <p className="text-sm font-medium text-gray-900">
+                                        {member.name}
+                                      </p>
+                                      <p className="text-xs text-gray-500">
+                                        {member.role}
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="text-right">
+                                    <p className="text-sm font-semibold text-gray-900">
+                                      {95 - index * 5}%
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                      Eficiencia
+                                    </p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        {/* Project Status */}
+                        <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
+                          <CardHeader>
+                            <CardTitle className="text-lg flex items-center">
+                              <BarChart3 className="h-5 w-5 text-emerald-600 mr-2" />
+                              Estado de Proyectos
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="space-y-4">
+                              {projects.map((project, index) => (
+                                <div
+                                  key={index}
+                                  className="p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors duration-300"
+                                >
+                                  <div className="flex items-center justify-between mb-3">
+                                    <div className="flex items-center space-x-2">
+                                      <div
+                                        className={`w-3 h-3 ${project.color} rounded-full`}
+                                      />
+                                      <span className="text-sm font-medium text-gray-900">
+                                        {project.name}
+                                      </span>
+                                    </div>
+                                    <Badge
+                                      className={`text-xs ${
+                                        project.status === "on-track"
+                                          ? "bg-green-100 text-green-700"
+                                          : project.status === "at-risk"
+                                            ? "bg-yellow-100 text-yellow-700"
+                                            : "bg-indigo-100 text-indigo-700"
+                                      }`}
+                                    >
+                                      {project.status}
+                                    </Badge>
+                                  </div>
+                                  <div className="grid grid-cols-3 gap-4 text-center">
+                                    <div>
+                                      <p className="text-lg font-bold text-gray-900">
+                                        {project.progress}%
+                                      </p>
+                                      <p className="text-xs text-gray-500">
+                                        Progreso
+                                      </p>
+                                    </div>
+                                    <div>
+                                      <p className="text-lg font-bold text-gray-900">
+                                        {project.tasks.completed}/
+                                        {project.tasks.total}
+                                      </p>
+                                      <p className="text-xs text-gray-500">
+                                        Tareas
+                                      </p>
+                                    </div>
+                                    <div>
+                                      <p className="text-lg font-bold text-gray-900">
+                                        {project.members}
+                                      </p>
+                                      <p className="text-xs text-gray-500">
+                                        Miembros
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <Progress
+                                    value={project.progress}
+                                    className="h-2 mt-3"
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+
+                      {/* Time Tracking */}
                       <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
                         <CardHeader>
                           <CardTitle className="text-lg flex items-center">
-                            <PieChart className="h-5 w-5 text-emerald-600 mr-2" />
-                            Distribución de Tareas
+                            <Timer className="h-5 w-5 text-blue-600 mr-2" />
+                            Seguimiento de Tiempo
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <div className="h-64 flex items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg">
-                            <div className="text-center">
-                              <div className="grid grid-cols-2 gap-4 mb-4">
-                                <div className="p-3 bg-white rounded-lg shadow-sm">
-                                  <p className="text-sm text-gray-600">
-                                    Completadas
-                                  </p>
-                                  <p className="text-xl font-bold text-emerald-600">
-                                    67%
-                                  </p>
-                                </div>
-                                <div className="p-3 bg-white rounded-lg shadow-sm">
-                                  <p className="text-sm text-gray-600">
-                                    En progreso
-                                  </p>
-                                  <p className="text-xl font-bold text-indigo-600">
-                                    23%
-                                  </p>
-                                </div>
-                                <div className="p-3 bg-white rounded-lg shadow-sm">
-                                  <p className="text-sm text-gray-600">
-                                    Pendientes
-                                  </p>
-                                  <p className="text-xl font-bold text-gray-600">
-                                    10%
-                                  </p>
-                                </div>
-                                <div className="p-3 bg-white rounded-lg shadow-sm">
-                                  <p className="text-sm text-gray-600">
-                                    Retrasadas
-                                  </p>
-                                  <p className="text-xl font-bold text-red-600">
-                                    0%
-                                  </p>
-                                </div>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="text-center p-4 bg-blue-50 rounded-lg">
+                              <div className="text-3xl font-bold text-blue-600 mb-2">
+                                32.5h
                               </div>
+                              <p className="text-sm text-gray-600">
+                                Esta semana
+                              </p>
+                            </div>
+                            <div className="text-center p-4 bg-green-50 rounded-lg">
+                              <div className="text-3xl font-bold text-green-600 mb-2">
+                                6.5h
+                              </div>
+                              <p className="text-sm text-gray-600">Hoy</p>
+                            </div>
+                            <div className="text-center p-4 bg-purple-50 rounded-lg">
+                              <div className="text-3xl font-bold text-purple-600 mb-2">
+                                128h
+                              </div>
+                              <p className="text-sm text-gray-600">Este mes</p>
                             </div>
                           </div>
                         </CardContent>
@@ -1217,7 +1654,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* New Productivity Tools Integration Section */}
+      {/* Enhanced Productivity Tools Integration Section */}
       <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -1230,80 +1667,87 @@ export default function Index() {
             </p>
           </div>
 
-          {/* Animated Tools Carousel */}
+          {/* Enhanced Tools Carousel */}
           <div className="relative mb-12 overflow-hidden">
             <div
               className="flex transition-transform duration-1000 ease-in-out"
               style={{
-                transform: `translateX(-${toolsCarouselIndex * (100 / 5)}%)`,
+                transform: `translateX(-${toolsCarouselIndex * (100 / 4)}%)`,
               }}
             >
-              {[...productivityTools, ...productivityTools].map(
-                (tool, index) => (
-                  <div key={index} className="w-1/5 flex-shrink-0 px-3">
-                    <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group text-center p-8">
-                      <div
-                        className={`w-16 h-16 ${tool.color} rounded-xl flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <tool.icon className="h-8 w-8" />
+              {[...Array(2)].map((_, repeatIndex) =>
+                productivityTools.map((tool, index) => (
+                  <div
+                    key={`${repeatIndex}-${index}`}
+                    className="w-1/4 flex-shrink-0 px-3"
+                  >
+                    <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group p-6 h-full">
+                      <div className="text-center">
+                        <div
+                          className={`w-16 h-16 ${tool.color} rounded-xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                        >
+                          <tool.icon className="h-8 w-8" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors duration-300">
+                          {tool.name}
+                        </h3>
+                        <p className="text-sm text-gray-600 mb-3">
+                          {tool.description}
+                        </p>
+                        <Badge className="bg-gray-100 text-gray-700 text-xs">
+                          {tool.category}
+                        </Badge>
                       </div>
-                      <p className="text-base font-semibold text-gray-700 group-hover:text-indigo-600 transition-colors duration-300">
-                        {tool.name}
-                      </p>
                     </Card>
                   </div>
-                ),
+                )),
               )}
             </div>
           </div>
 
-          {/* Collaborative Work Illustrations */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4">
-                <Workflow className="h-8 w-8" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">
-                Flujos Automatizados
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Conecta procesos entre diferentes herramientas
-              </p>
-            </Card>
-
-            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4">
-                <Network className="h-8 w-8" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">
-                Colaboración en Red
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Conecta equipos distribuidos globalmente
-              </p>
-            </Card>
-
-            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4">
-                <Palette className="h-8 w-8" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">
-                Diseño Colaborativo
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Feedback en tiempo real en proyectos creativos
-              </p>
-            </Card>
-
-            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center text-white mx-auto mb-4">
-                <Code className="h-8 w-8" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Desarrollo Ágil</h3>
-              <p className="text-gray-600 text-sm">
-                Integra repositorios y CI/CD pipelines
-              </p>
-            </Card>
+          {/* Enhanced Collaborative Work Illustrations */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {[
+              {
+                title: "Flujos Automatizados",
+                description: "Conecta procesos entre diferentes herramientas",
+                icon: Workflow,
+                color: "bg-gradient-to-r from-blue-500 to-indigo-500",
+              },
+              {
+                title: "Colaboración en Red",
+                description: "Conecta equipos distribuidos globalmente",
+                icon: Network,
+                color: "bg-gradient-to-r from-green-500 to-teal-500",
+              },
+              {
+                title: "Diseño Colaborativo",
+                description: "Feedback en tiempo real en proyectos creativos",
+                icon: Palette,
+                color: "bg-gradient-to-r from-purple-500 to-pink-500",
+              },
+              {
+                title: "Desarrollo Ágil",
+                description: "Integra repositorios y CI/CD pipelines",
+                icon: Code,
+                color: "bg-gradient-to-r from-orange-500 to-red-500",
+              },
+            ].map((item, index) => (
+              <Card
+                key={index}
+                className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+              >
+                <div
+                  className={`w-16 h-16 ${item.color} rounded-xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <item.icon className="h-8 w-8" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2 group-hover:text-indigo-600 transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-sm">{item.description}</p>
+              </Card>
+            ))}
           </div>
 
           <div className="text-center">
