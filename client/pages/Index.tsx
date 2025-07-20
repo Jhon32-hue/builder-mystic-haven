@@ -579,7 +579,7 @@ export default function Index() {
                 </div>
                 {/* Enhanced typography */}
                 <div className="ml-4 relative">
-                  <span className="text-4xl font-black text-gray-900 bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-700 bg-clip-text text-transparent leading-10 group-hover:from-indigo-600 group-hover:via-blue-600 group-hover:to-purple-600 transition-all duration-500">
+                  <span className="text-4xl font-black text-white bg-gradient-to-r from-white via-blue-100 to-indigo-100 bg-clip-text text-transparent leading-10 group-hover:from-blue-300 group-hover:via-indigo-300 group-hover:to-purple-300 transition-all duration-500">
                     Taskly
                   </span>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 group-hover:w-full transition-all duration-700" />
