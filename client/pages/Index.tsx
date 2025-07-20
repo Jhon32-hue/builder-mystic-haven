@@ -660,14 +660,14 @@ export default function Index() {
           </div>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden border-t bg-white/98 backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
+          <div className="md:hidden border-t border-slate-700 bg-slate-900/98 backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {["Características", "Precios", "Equipos", "Integraciones"].map(
                 (item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className="block px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors duration-300"
+                    className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors duration-300"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item}
@@ -677,11 +677,11 @@ export default function Index() {
               <div className="flex flex-col space-y-2 px-3 pt-4">
                 <Button
                   variant="ghost"
-                  className="justify-start hover:bg-gray-50"
+                  className="justify-start hover:bg-slate-800 text-gray-300 hover:text-white"
                 >
                   Iniciar Sesión
                 </Button>
-                <Button className="justify-start bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700">
+                <Button className="justify-start bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700">
                   <Sparkles className="mr-2 h-4 w-4" />
                   Comenzar Gratis
                 </Button>
