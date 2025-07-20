@@ -617,7 +617,7 @@ export default function Index() {
             <div className="hidden md:flex items-center space-x-6">
               <Button
                 variant="ghost"
-                className={`text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50 transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                className={`text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "400ms" }}
               >
                 <span className="relative z-10">Iniciar Sesión</span>
