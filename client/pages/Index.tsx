@@ -600,7 +600,7 @@ export default function Index() {
                     <a
                       key={item}
                       href={`#${item.toLowerCase()}`}
-                      className={`text-gray-600 hover:text-gray-900 px-5 py-3 text-sm font-semibold transition-all duration-300 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 rounded-xl relative group transform hover:scale-105 hover:-translate-y-0.5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                      className={`text-gray-300 hover:text-white px-5 py-3 text-sm font-semibold transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-800/50 hover:to-indigo-800/50 rounded-xl relative group transform hover:scale-105 hover:-translate-y-0.5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                       style={{ transitionDelay: `${100 + index * 100}ms` }}
                     >
                       <span className="relative z-10">{item}</span>
