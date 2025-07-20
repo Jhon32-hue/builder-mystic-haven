@@ -558,11 +558,11 @@ export default function Index() {
         />
       </div>
 
-      {/* Enhanced Navigation */}
-      <nav className="border-b bg-white/95 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 hover:bg-white/98 shadow-sm relative overflow-hidden">
+      {/* Professional Navigation */}
+      <nav className="border-b border-slate-800/50 bg-slate-900/95 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 hover:bg-slate-900/98 shadow-xl relative overflow-hidden">
         {/* Animated header background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/50 via-white/80 to-blue-50/50 opacity-0 hover:opacity-100 transition-opacity duration-500" />
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-blue-500 to-purple-500 animate-shimmer" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-slate-900/80 to-indigo-900/30 opacity-0 hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 animate-shimmer" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex justify-between h-20">
@@ -739,7 +739,7 @@ export default function Index() {
                   className={`text-lg md:text-xl text-blue-100 leading-relaxed max-w-lg transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
                   style={{ transitionDelay: "400ms" }}
                 >
-                  Obt��n hasta $50M en capital no dilutivo en 30 días o menos.
+                  Obtén hasta $50M en capital no dilutivo en 30 días o menos.
                   Propósito específico para negocios SaaS B2B con ingresos
                   recurrentes. Nuestro enfoque flexible significa sin garantías,
                   sin garantías personales o penalizaciones por pago anticipado.
