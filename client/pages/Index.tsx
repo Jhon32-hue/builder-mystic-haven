@@ -2366,6 +2366,193 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Testimonials & Social Proof Section */}
+      <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-blue-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-16 relative">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-100/30 to-blue-100/30 rounded-full blur-3xl animate-pulse" />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 relative z-10 animate-in slide-in-from-bottom-4 duration-1000">
+              Lo que dicen nuestros clientes
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto relative z-10 animate-in slide-in-from-bottom-4 duration-1000 delay-300">
+              Más de{" "}
+              <span className="font-bold text-indigo-600">10,000+ equipos</span>{" "}
+              ya confían en Taskly para transformar su productividad
+            </p>
+          </div>
+
+          {/* Stats Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            {[
+              { value: "10,000+", label: "Equipos activos", icon: Users },
+              { value: "98%", label: "Satisfacción", icon: Heart },
+              { value: "4.9/5", label: "Rating promedio", icon: Star },
+              { value: "50+", label: "Países", icon: Globe },
+            ].map((stat, index) => (
+              <Card
+                key={index}
+                className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white/80 backdrop-blur-sm"
+              >
+                <stat.icon className="h-8 w-8 text-indigo-600 mx-auto mb-3" />
+                <div className="text-3xl font-black text-gray-900 mb-2">
+                  {stat.value}
+                </div>
+                <p className="text-sm text-gray-600 font-medium">
+                  {stat.label}
+                </p>
+              </Card>
+            ))}
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                name: "María González",
+                role: "CEO, TechStart Solutions",
+                company: "Startup Tecnológica",
+                avatar: "MG",
+                avatarColor: "bg-purple-500",
+                testimonial:
+                  "Taskly transformó completamente nuestra forma de trabajar. En 6 meses aumentamos nuestra productividad un 40% y nuestro equipo remoto nunca estuvo tan conectado.",
+                rating: 5,
+              },
+              {
+                name: "Carlos Ruíz",
+                role: "Director de Proyectos",
+                company: "Creative Agency Pro",
+                avatar: "CR",
+                avatarColor: "bg-blue-500",
+                testimonial:
+                  "La integración con nuestros CRMs fue perfecta. Ahora tenemos visibilidad completa desde leads hasta clientes, todo en un solo lugar. Nuestros procesos son 60% más eficientes.",
+                rating: 5,
+              },
+              {
+                name: "Ana López",
+                role: "Freelancer Designer",
+                company: "Diseño Independiente",
+                avatar: "AL",
+                avatarColor: "bg-green-500",
+                testimonial:
+                  "Como freelancer, necesitaba algo simple pero poderoso. Taskly me permite gestionar múltiples clientes sin perder el control. ¡Es perfecto para mi flujo de trabajo!",
+                rating: 5,
+              },
+              {
+                name: "Juan Pérez",
+                role: "Tech Lead",
+                company: "DevTeam Remote",
+                avatar: "JP",
+                avatarColor: "bg-orange-500",
+                testimonial:
+                  "Las integraciones con GitHub y Slack son increíbles. Nuestro equipo distribuido puede colaborar como si estuviéramos en la misma oficina. Game changer total.",
+                rating: 5,
+              },
+              {
+                name: "Laura Martín",
+                role: "Product Manager",
+                company: "E-commerce Plus",
+                avatar: "LM",
+                avatarColor: "bg-pink-500",
+                testimonial:
+                  "Los analytics en tiempo real nos ayudaron a identificar cuellos de botella que no sabíamos que existían. Mejoramos nuestro time-to-market en un 35%.",
+                rating: 5,
+              },
+              {
+                name: "Roberto Silva",
+                role: "Operations Director",
+                company: "Global Logistics",
+                avatar: "RS",
+                avatarColor: "bg-indigo-500",
+                testimonial:
+                  "Gestionar equipos en 3 continentes era un caos. Con Taskly coordinamos todo perfectamente. La visibilidad y control que tenemos ahora es impresionante.",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <Card
+                key={index}
+                className={`border-0 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group bg-white relative overflow-hidden animate-in slide-in-from-bottom-4 duration-800`}
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                {/* Floating background elements */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-indigo-100/30 to-blue-100/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-br from-purple-100/20 to-pink-100/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <CardContent className="p-8 relative z-10">
+                  {/* Rating Stars */}
+                  <div className="flex items-center mb-4">
+                    {Array.from({ length: testimonial.rating }).map(
+                      (_, starIndex) => (
+                        <Star
+                          key={starIndex}
+                          className="h-5 w-5 text-yellow-400 fill-current"
+                        />
+                      ),
+                    )}
+                  </div>
+
+                  {/* Testimonial Text */}
+                  <blockquote className="text-gray-700 mb-6 text-base leading-relaxed italic group-hover:text-gray-800 transition-colors duration-300">
+                    "{testimonial.testimonial}"
+                  </blockquote>
+
+                  {/* Author Info */}
+                  <div className="flex items-center space-x-4">
+                    <div
+                      className={`w-14 h-14 ${testimonial.avatarColor} rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      {testimonial.avatar}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {testimonial.role}
+                      </p>
+                      <p className="text-xs text-indigo-600 font-medium">
+                        {testimonial.company}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Company Logos */}
+          <div className="text-center">
+            <p className="text-lg text-gray-600 mb-8 font-medium">
+              Empresas que confían en Taskly
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 hover:opacity-80 transition-opacity duration-300">
+              {[
+                { name: "TechCorp", logo: "TC" },
+                { name: "InnovateLabs", logo: "IL" },
+                { name: "CreativeHub", logo: "CH" },
+                { name: "DataFlow", logo: "DF" },
+                { name: "CloudWorks", logo: "CW" },
+                { name: "NextGen", logo: "NG" },
+              ].map((company, index) => (
+                <div
+                  key={index}
+                  className="flex items-center space-x-2 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 group"
+                >
+                  <div className="w-10 h-10 bg-gray-600 text-white rounded-lg flex items-center justify-center font-bold text-sm group-hover:bg-indigo-600 transition-colors duration-300">
+                    {company.logo}
+                  </div>
+                  <span className="text-gray-700 font-semibold group-hover:text-indigo-600 transition-colors duration-300">
+                    {company.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Enhanced CTA Section */}
       <section className="py-20 bg-gradient-to-r from-indigo-500 via-indigo-600 to-blue-600 text-white relative overflow-hidden">
         <div className="absolute inset-0">
