@@ -2154,22 +2154,58 @@ export default function Index() {
                     key={`${repeatIndex}-${index}`}
                     className="w-1/4 flex-shrink-0 px-3"
                   >
-                    <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group p-6 h-full">
-                      <div className="text-center">
-                        <div
-                          className={`w-16 h-16 ${tool.color} rounded-xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
-                        >
-                          <tool.icon className="h-8 w-8" />
+                    <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-3 group p-8 h-full relative overflow-hidden bg-gradient-to-br from-white via-gray-50/50 to-white">
+                      {/* Animated background overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/0 via-blue-50/0 to-purple-50/0 group-hover:from-indigo-50/60 group-hover:via-blue-50/40 group-hover:to-purple-50/60 transition-all duration-500 opacity-0 group-hover:opacity-100" />
+                      {/* Shimmer effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 skew-x-12" />
+
+                      <div className="text-center relative z-10">
+                        {/* Enhanced icon container */}
+                        <div className="relative mb-6">
+                          <div className="absolute inset-0 bg-gradient-to-r from-gray-200/30 to-gray-300/30 rounded-2xl blur-lg scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
+                          <div
+                            className={`relative w-20 h-20 ${tool.color} rounded-2xl flex items-center justify-center text-white mx-auto shadow-lg group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500 group-hover:rotate-6`}
+                          >
+                            <tool.icon className="h-10 w-10 group-hover:animate-bounce" />
+                            {/* Floating particles */}
+                            <div
+                              className="absolute -top-1 -right-1 w-2 h-2 bg-white/80 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"
+                              style={{ animationDelay: "0s" }}
+                            />
+                            <div
+                              className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-white/60 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"
+                              style={{ animationDelay: "0.3s" }}
+                            />
+                          </div>
                         </div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors duration-300">
+
+                        {/* Enhanced typography */}
+                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors duration-500 group-hover:scale-105 transform">
                           {tool.name}
                         </h3>
-                        <p className="text-sm text-gray-600 mb-3">
+                        <p className="text-sm text-gray-600 mb-4 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                           {tool.description}
                         </p>
-                        <Badge className="bg-gray-100 text-gray-700 text-xs">
-                          {tool.category}
-                        </Badge>
+
+                        {/* Enhanced badge */}
+                        <div className="relative">
+                          <Badge className="bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 text-xs px-3 py-1.5 font-semibold group-hover:from-indigo-100 group-hover:to-blue-100 group-hover:text-indigo-700 transition-all duration-300 shadow-sm group-hover:shadow-md transform group-hover:scale-105">
+                            {tool.category}
+                          </Badge>
+                          {/* Badge glow effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-indigo-200/0 to-blue-200/0 group-hover:from-indigo-200/40 group-hover:to-blue-200/40 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                        </div>
+
+                        {/* Connection indicator */}
+                        <div className="mt-4 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                          <div className="flex items-center space-x-1">
+                            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                            <span className="text-xs text-green-600 font-medium">
+                              Conectado
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </Card>
                   </div>
