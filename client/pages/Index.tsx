@@ -559,50 +559,88 @@ export default function Index() {
       </div>
 
       {/* Enhanced Navigation */}
-      <nav className="border-b bg-white/95 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 hover:bg-white/98 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+      <nav className="border-b bg-white/95 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 hover:bg-white/98 shadow-sm relative overflow-hidden">
+        {/* Animated header background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/50 via-white/80 to-blue-50/50 opacity-0 hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-blue-500 to-purple-500 animate-shimmer" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex justify-between h-20">
             <div className="flex items-center">
               <div
-                className={`flex-shrink-0 flex items-center transform transition-all duration-700 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
+                className={`flex-shrink-0 flex items-center transform transition-all duration-700 group ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
               >
-                <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:rotate-6">
-                  <CheckCircle className="h-6 w-6 text-white" />
+                {/* Enhanced logo with floating effect */}
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-indigo-600/20 rounded-xl blur-lg scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse" />
+                  <div className="relative w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:rotate-6 group-hover:animate-bounce">
+                    <CheckCircle className="h-7 w-7 text-white group-hover:animate-pulse" />
+                  </div>
                 </div>
-                <span className="ml-3 text-4xl font-black text-gray-900 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent leading-10">
-                  Taskly
-                </span>
+                {/* Enhanced typography */}
+                <div className="ml-4 relative">
+                  <span className="text-4xl font-black text-gray-900 bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-700 bg-clip-text text-transparent leading-10 group-hover:from-indigo-600 group-hover:via-blue-600 group-hover:to-purple-600 transition-all duration-500">
+                    Taskly
+                  </span>
+                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 group-hover:w-full transition-all duration-700" />
+                  {/* Floating particles around logo */}
+                  <div
+                    className="absolute -top-2 -right-2 w-2 h-2 bg-indigo-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"
+                    style={{ animationDelay: "0s" }}
+                  />
+                  <div
+                    className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"
+                    style={{ animationDelay: "0.5s" }}
+                  />
+                </div>
               </div>
-              <div className="hidden md:ml-8 md:flex md:space-x-1">
+              <div className="hidden md:ml-12 md:flex md:space-x-2">
                 {["Características", "Precios", "Equipos", "Integraciones"].map(
                   (item, index) => (
                     <a
                       key={item}
                       href={`#${item.toLowerCase()}`}
-                      className={`text-gray-600 hover:text-gray-900 px-4 py-2 text-sm font-medium transition-all duration-300 hover:bg-gray-50 rounded-lg relative group transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                      className={`text-gray-600 hover:text-gray-900 px-5 py-3 text-sm font-semibold transition-all duration-300 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 rounded-xl relative group transform hover:scale-105 hover:-translate-y-0.5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                       style={{ transitionDelay: `${100 + index * 100}ms` }}
                     >
-                      {item}
-                      <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-500 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                      <span className="relative z-10">{item}</span>
+                      {/* Enhanced hover effects */}
+                      <span className="absolute inset-x-1 bottom-1 h-0.5 bg-gradient-to-r from-indigo-500 via-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-full" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-indigo-100/0 via-blue-100/0 to-purple-100/0 group-hover:from-indigo-100/50 group-hover:via-blue-100/30 group-hover:to-purple-100/50 rounded-xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
+                      {/* Floating indicator */}
+                      <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-indigo-400 rounded-full opacity-0 group-hover:opacity-100 animate-bounce transition-opacity duration-300" />
                     </a>
                   ),
                 )}
               </div>
             </div>
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-6">
               <Button
                 variant="ghost"
-                className={`text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-300 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                className={`text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50 transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "400ms" }}
               >
-                Iniciar Sesión
+                <span className="relative z-10">Iniciar Sesión</span>
+                <div className="absolute inset-0 border border-gray-200 rounded-xl group-hover:border-indigo-200 transition-colors duration-300" />
               </Button>
               <Button
-                className={`bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                className={`bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 px-6 py-2.5 rounded-xl font-semibold relative overflow-hidden group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "500ms" }}
               >
-                <Sparkles className="mr-2 h-4 w-4" />
-                Comenzar Gratis
+                {/* Animated background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12" />
+                <Sparkles className="mr-2 h-4 w-4 relative z-10 group-hover:animate-spin" />
+                <span className="relative z-10">Comenzar Gratis</span>
+                {/* Floating particles */}
+                <div
+                  className="absolute top-0 right-0 w-1 h-1 bg-white/60 rounded-full animate-ping opacity-0 group-hover:opacity-100"
+                  style={{ animationDelay: "0.2s" }}
+                />
+                <div
+                  className="absolute bottom-0 left-0 w-1 h-1 bg-white/60 rounded-full animate-ping opacity-0 group-hover:opacity-100"
+                  style={{ animationDelay: "0.4s" }}
+                />
               </Button>
             </div>
             <div className="md:hidden flex items-center">
