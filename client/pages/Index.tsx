@@ -691,189 +691,62 @@ export default function Index() {
         )}
       </nav>
 
-            {/* Professional Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-        {/* Geometric Background Patterns */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10">
-            <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}} />
-          </div>
-          {/* Geometric Shapes */}
-          <div className="absolute top-1/3 right-1/4 w-32 h-32 border border-blue-300/20 rotate-45 animate-spin" style={{animationDuration: '20s'}} />
-          <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-indigo-300/20 rotate-12 animate-pulse" />
-          <div className="absolute top-1/2 left-1/6 w-16 h-16 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-lg rotate-45" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <Badge
-                  className={`inline-flex bg-gradient-to-r from-green-400/20 to-blue-400/20 text-green-300 border-green-400/30 hover:from-green-400/30 hover:to-blue-400/30 transition-all duration-500 transform hover:scale-105 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-                  style={{ transitionDelay: "200ms" }}
-                >
-                  <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
-                  UPFRONT CAPITAL ™
-                </Badge>
-
-                <h1
-                  className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
-                  style={{ transitionDelay: "300ms" }}
-                >
-                  Escala tu empresa con{" "}
-                  <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                    Taskly,
-                  </span>{" "}
-                  capital flexible y no dilutivo
-                </h1>
-
-                <p
-                  className={`text-lg md:text-xl text-blue-100 leading-relaxed max-w-lg transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-                  style={{ transitionDelay: "400ms" }}
-                >
-                  Obtén hasta $50M en capital no dilutivo en 30 días o menos. Propósito
-                  específico para negocios SaaS B2B con ingresos recurrentes. Nuestro
-                  enfoque flexible significa sin garantías, sin garantías personales o
-                  penalizaciones por pago anticipado.
-                </p>
-
-                <div className="flex items-center space-x-4 text-sm text-blue-200">
-                  <div className="flex items-center space-x-2">
-                    <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                    <span>4.8/5.0</span>
-                  </div>
-                  <span>•</span>
-                  <span>500+ Trusted reviews</span>
-                </div>
-              </div>
-
-              <div
-                className={`flex flex-col sm:flex-row gap-4 transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-                style={{ transitionDelay: "500ms" }}
-              >
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 text-base font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group border-0"
-                >
-                  <Rocket className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
-                  GET FUNDING
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="px-8 py-4 text-base font-semibold border-blue-300/30 text-blue-100 hover:border-blue-300/50 hover:bg-blue-800/20 transition-all duration-300 group"
-                >
-                  <MessageSquare className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                  TALK TO SALES
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Right Content - Dashboard Preview */}
-            <div
-              className={`relative transform transition-all duration-1200 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"}`}
-              style={{ transitionDelay: "600ms" }}
+            {/* Enhanced Hero Section */}
+      <section className="relative overflow-hidden py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <Badge
+              className={`mb-8 bg-gradient-to-r from-indigo-50 to-blue-50 text-indigo-700 border-indigo-200 hover:bg-gradient-to-r hover:from-indigo-100 hover:to-blue-100 transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+              style={{ transitionDelay: "200ms" }}
             >
-              {/* Main Dashboard Container */}
-              <div className="relative">
-                {/* Background Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-2xl blur-3xl scale-110" />
+              <Sparkles className="mr-2 h-4 w-4" />
+              Espacio Colaborativo Avanzado
+            </Badge>
 
-                {/* Main Dashboard */}
-                <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
-                  {/* Dashboard Header */}
-                  <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-lg flex items-center justify-center">
-                          <CheckCircle className="h-5 w-5 text-white" />
-                        </div>
-                        <span className="text-lg font-bold text-gray-900">Taskly</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-green-400 rounded-full" />
-                        <span className="text-sm text-gray-600">Live</span>
-                      </div>
-                    </div>
-                  </div>
+            <h1
+              className={`text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
+              style={{ transitionDelay: "300ms" }}
+            >
+              El espacio colaborativo{" "}
+              <span className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-blue-600 bg-clip-text text-transparent animate-gradient bg-300% relative">
+                para equipos de cualquier tamaño.
+                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 via-indigo-600/20 to-blue-600/20 blur-lg opacity-30 animate-pulse" />
+              </span>
+            </h1>
 
-                  {/* Dashboard Content */}
-                  <div className="p-6 space-y-6">
-                    {/* Stats Cards */}
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl">
-                        <div className="text-2xl font-bold text-gray-900">$450K</div>
-                        <div className="text-sm text-gray-600">Revenue Pipeline</div>
-                        <div className="text-xs text-green-600 font-medium">↗ +24%</div>
-                      </div>
-                      <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-xl">
-                        <div className="text-2xl font-bold text-gray-900">156</div>
-                        <div className="text-sm text-gray-600">Active Projects</div>
-                        <div className="text-xs text-green-600 font-medium">↗ +12%</div>
-                      </div>
-                    </div>
+            <p
+              className={`text-xl md:text-2xl text-gray-600 mb-10 max-w-6xl mx-auto leading-relaxed text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+              style={{ transitionDelay: "400ms", lineHeight: "32px" }}
+            >
+              Desde startups ágiles hasta agencias, equipos remotos y
+              freelancers, <strong className="text-indigo-600">Taskly</strong>{" "}
+              te proporciona el entorno perfecto para gestionar tareas,
+              colaborar y optimizar tu flujo de trabajo. Adaptado a cada tipo de
+              equipo, con herramientas poderosas, automatización y completa
+              integración de CRM empresarial. Todo lo que necesitas, en un solo
+              lugar.
+            </p>
 
-                    {/* Chart Area */}
-                    <div className="bg-gray-50 rounded-xl p-4">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-sm font-medium text-gray-900">Performance Overview</span>
-                        <div className="flex items-center space-x-2">
-                          <div className="w-3 h-3 bg-blue-500 rounded-full" />
-                          <span className="text-xs text-gray-600">Revenue</span>
-                        </div>
-                      </div>
-                      {/* Simple Chart Representation */}
-                      <div className="flex items-end space-x-2 h-20">
-                        {[40, 60, 45, 80, 65, 90, 75, 95].map((height, index) => (
-                          <div
-                            key={index}
-                            className="bg-gradient-to-t from-blue-500 to-indigo-500 rounded-t flex-1 animate-pulse"
-                            style={{
-                              height: `${height}%`,
-                              animationDelay: `${index * 0.1}s`,
-                              animationDuration: '2s'
-                            }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Team Section */}
-                    <div className="space-y-3">
-                      <div className="text-sm font-medium text-gray-900">Active Team</div>
-                      <div className="flex items-center space-x-3">
-                        <div className="flex -space-x-2">
-                          {['MG', 'CR', 'AL', 'JP'].map((avatar, index) => (
-                            <div key={index} className={`w-8 h-8 ${['bg-purple-500', 'bg-blue-500', 'bg-green-500', 'bg-orange-500'][index]} rounded-full flex items-center justify-center text-white text-xs font-bold border-2 border-white`}>
-                              {avatar}
-                            </div>
-                          ))}
-                        </div>
-                        <div className="text-sm text-gray-600">+12 more</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 animate-float">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-xs font-medium text-gray-900">Real-time sync</span>
-                  </div>
-                </div>
-
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-3 animate-float-reverse">
-                  <div className="flex items-center space-x-2">
-                    <TrendingUp className="h-4 w-4 text-green-500" />
-                    <span className="text-xs font-medium text-gray-900">+40% productivity</span>
-                  </div>
-                </div>
-              </div>
+            <div
+              className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+              style={{ transitionDelay: "500ms" }}
+            >
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white px-8 py-4 text-lg shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 group"
+              >
+                <Rocket className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                Comenzar gratis
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="px-8 py-4 text-lg border-gray-300 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 transition-all duration-300 group"
+              >
+                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                Explorar dashboard
+              </Button>
             </div>
           </div>
         </div>
