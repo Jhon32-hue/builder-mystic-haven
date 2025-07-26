@@ -558,14 +558,14 @@ export default function Index() {
         />
       </div>
 
-      {/* Professional Navigation */}
-      <nav className="border-b border-slate-800/50 bg-slate-900/95 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 hover:bg-slate-900/98 shadow-xl relative overflow-hidden">
+            {/* Enhanced Navigation */}
+      <nav className="border-b bg-white/95 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 hover:bg-white/98 shadow-sm relative overflow-hidden">
         {/* Animated header background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-slate-900/80 to-indigo-900/30 opacity-0 hover:opacity-100 transition-opacity duration-500" />
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 animate-shimmer" />
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/50 via-white/80 to-blue-50/50 opacity-0 hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-blue-500 to-purple-500 animate-shimmer" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex justify-between h-20">
+          <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div
                 className={`flex-shrink-0 flex items-center transform transition-all duration-700 group ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
@@ -579,7 +579,7 @@ export default function Index() {
                 </div>
                 {/* Enhanced typography */}
                 <div className="ml-4 relative">
-                  <span className="text-4xl font-black text-white bg-gradient-to-r from-white via-blue-100 to-indigo-100 bg-clip-text text-transparent leading-10 group-hover:from-blue-300 group-hover:via-indigo-300 group-hover:to-purple-300 transition-all duration-500">
+                                    <span className="text-4xl font-black text-gray-900 bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-700 bg-clip-text text-transparent leading-10 group-hover:from-indigo-600 group-hover:via-blue-600 group-hover:to-purple-600 transition-all duration-500">
                     Taskly
                   </span>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 group-hover:w-full transition-all duration-700" />
@@ -600,7 +600,7 @@ export default function Index() {
                     <a
                       key={item}
                       href={`#${item.toLowerCase()}`}
-                      className={`text-gray-300 hover:text-white px-5 py-3 text-sm font-semibold transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-800/50 hover:to-indigo-800/50 rounded-xl relative group transform hover:scale-105 hover:-translate-y-0.5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                                            className={`text-gray-600 hover:text-gray-900 px-5 py-3 text-sm font-semibold transition-all duration-300 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 rounded-xl relative group transform hover:scale-105 hover:-translate-y-0.5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                       style={{ transitionDelay: `${100 + index * 100}ms` }}
                     >
                       <span className="relative z-10">{item}</span>
@@ -617,14 +617,14 @@ export default function Index() {
             <div className="hidden md:flex items-center space-x-6">
               <Button
                 variant="ghost"
-                className={`text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                                className={`text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50 transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "400ms" }}
               >
                 <span className="relative z-10">Iniciar Sesión</span>
-                <div className="absolute inset-0 border border-slate-600 rounded-xl group-hover:border-blue-400 transition-colors duration-300" />
+                                <div className="absolute inset-0 border border-gray-200 rounded-xl group-hover:border-indigo-200 transition-colors duration-300" />
               </Button>
               <Button
-                className={`bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-2xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 px-6 py-2.5 rounded-xl font-semibold relative overflow-hidden group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                className={`bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 px-6 py-2.5 rounded-xl font-semibold relative overflow-hidden group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "500ms" }}
               >
                 {/* Animated background */}
@@ -660,14 +660,14 @@ export default function Index() {
           </div>
         </div>
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-slate-700 bg-slate-900/98 backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
+                    <div className="md:hidden border-t bg-white/98 backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {["Características", "Precios", "Equipos", "Integraciones"].map(
                 (item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors duration-300"
+                    className="block px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors duration-300"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item}
@@ -677,11 +677,11 @@ export default function Index() {
               <div className="flex flex-col space-y-2 px-3 pt-4">
                 <Button
                   variant="ghost"
-                  className="justify-start hover:bg-slate-800 text-gray-300 hover:text-white"
+                  className="justify-start hover:bg-gray-50"
                 >
                   Iniciar Sesión
                 </Button>
-                <Button className="justify-start bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700">
+                <Button className="justify-start bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700">
                   <Sparkles className="mr-2 h-4 w-4" />
                   Comenzar Gratis
                 </Button>
@@ -691,22 +691,16 @@ export default function Index() {
         )}
       </nav>
 
-      {/* Professional Hero Section */}
+            {/* Professional Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
         {/* Geometric Background Patterns */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full opacity-10">
             <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full blur-3xl animate-pulse" />
-            <div
-              className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full blur-3xl animate-pulse"
-              style={{ animationDelay: "2s" }}
-            />
+            <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}} />
           </div>
           {/* Geometric Shapes */}
-          <div
-            className="absolute top-1/3 right-1/4 w-32 h-32 border border-blue-300/20 rotate-45 animate-spin"
-            style={{ animationDuration: "20s" }}
-          />
+          <div className="absolute top-1/3 right-1/4 w-32 h-32 border border-blue-300/20 rotate-45 animate-spin" style={{animationDuration: '20s'}} />
           <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-indigo-300/20 rotate-12 animate-pulse" />
           <div className="absolute top-1/2 left-1/6 w-16 h-16 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-lg rotate-45" />
         </div>
@@ -739,10 +733,10 @@ export default function Index() {
                   className={`text-lg md:text-xl text-blue-100 leading-relaxed max-w-lg transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
                   style={{ transitionDelay: "400ms" }}
                 >
-                  Obtén hasta $50M en capital no dilutivo en 30 días o menos.
-                  Propósito específico para negocios SaaS B2B con ingresos
-                  recurrentes. Nuestro enfoque flexible significa sin garantías,
-                  sin garantías personales o penalizaciones por pago anticipado.
+                  Obtén hasta $50M en capital no dilutivo en 30 días o menos. Propósito
+                  específico para negocios SaaS B2B con ingresos recurrentes. Nuestro
+                  enfoque flexible significa sin garantías, sin garantías personales o
+                  penalizaciones por pago anticipado.
                 </p>
 
                 <div className="flex items-center space-x-4 text-sm text-blue-200">
@@ -798,9 +792,7 @@ export default function Index() {
                         <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-lg flex items-center justify-center">
                           <CheckCircle className="h-5 w-5 text-white" />
                         </div>
-                        <span className="text-lg font-bold text-gray-900">
-                          Taskly
-                        </span>
+                        <span className="text-lg font-bold text-gray-900">Taskly</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-green-400 rounded-full" />
@@ -814,35 +806,21 @@ export default function Index() {
                     {/* Stats Cards */}
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl">
-                        <div className="text-2xl font-bold text-gray-900">
-                          $450K
-                        </div>
-                        <div className="text-sm text-gray-600">
-                          Revenue Pipeline
-                        </div>
-                        <div className="text-xs text-green-600 font-medium">
-                          ↗ +24%
-                        </div>
+                        <div className="text-2xl font-bold text-gray-900">$450K</div>
+                        <div className="text-sm text-gray-600">Revenue Pipeline</div>
+                        <div className="text-xs text-green-600 font-medium">↗ +24%</div>
                       </div>
                       <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-xl">
-                        <div className="text-2xl font-bold text-gray-900">
-                          156
-                        </div>
-                        <div className="text-sm text-gray-600">
-                          Active Projects
-                        </div>
-                        <div className="text-xs text-green-600 font-medium">
-                          ↗ +12%
-                        </div>
+                        <div className="text-2xl font-bold text-gray-900">156</div>
+                        <div className="text-sm text-gray-600">Active Projects</div>
+                        <div className="text-xs text-green-600 font-medium">↗ +12%</div>
                       </div>
                     </div>
 
                     {/* Chart Area */}
                     <div className="bg-gray-50 rounded-xl p-4">
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-sm font-medium text-gray-900">
-                          Performance Overview
-                        </span>
+                        <span className="text-sm font-medium text-gray-900">Performance Overview</span>
                         <div className="flex items-center space-x-2">
                           <div className="w-3 h-3 bg-blue-500 rounded-full" />
                           <span className="text-xs text-gray-600">Revenue</span>
@@ -850,34 +828,27 @@ export default function Index() {
                       </div>
                       {/* Simple Chart Representation */}
                       <div className="flex items-end space-x-2 h-20">
-                        {[40, 60, 45, 80, 65, 90, 75, 95].map(
-                          (height, index) => (
-                            <div
-                              key={index}
-                              className="bg-gradient-to-t from-blue-500 to-indigo-500 rounded-t flex-1 animate-pulse"
-                              style={{
-                                height: `${height}%`,
-                                animationDelay: `${index * 0.1}s`,
-                                animationDuration: "2s",
-                              }}
-                            />
-                          ),
-                        )}
+                        {[40, 60, 45, 80, 65, 90, 75, 95].map((height, index) => (
+                          <div
+                            key={index}
+                            className="bg-gradient-to-t from-blue-500 to-indigo-500 rounded-t flex-1 animate-pulse"
+                            style={{
+                              height: `${height}%`,
+                              animationDelay: `${index * 0.1}s`,
+                              animationDuration: '2s'
+                            }}
+                          />
+                        ))}
                       </div>
                     </div>
 
                     {/* Team Section */}
                     <div className="space-y-3">
-                      <div className="text-sm font-medium text-gray-900">
-                        Active Team
-                      </div>
+                      <div className="text-sm font-medium text-gray-900">Active Team</div>
                       <div className="flex items-center space-x-3">
                         <div className="flex -space-x-2">
-                          {["MG", "CR", "AL", "JP"].map((avatar, index) => (
-                            <div
-                              key={index}
-                              className={`w-8 h-8 ${["bg-purple-500", "bg-blue-500", "bg-green-500", "bg-orange-500"][index]} rounded-full flex items-center justify-center text-white text-xs font-bold border-2 border-white`}
-                            >
+                          {['MG', 'CR', 'AL', 'JP'].map((avatar, index) => (
+                            <div key={index} className={`w-8 h-8 ${['bg-purple-500', 'bg-blue-500', 'bg-green-500', 'bg-orange-500'][index]} rounded-full flex items-center justify-center text-white text-xs font-bold border-2 border-white`}>
                               {avatar}
                             </div>
                           ))}
@@ -892,18 +863,14 @@ export default function Index() {
                 <div className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 animate-float">
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-xs font-medium text-gray-900">
-                      Real-time sync
-                    </span>
+                    <span className="text-xs font-medium text-gray-900">Real-time sync</span>
                   </div>
                 </div>
 
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-3 animate-float-reverse">
                   <div className="flex items-center space-x-2">
                     <TrendingUp className="h-4 w-4 text-green-500" />
-                    <span className="text-xs font-medium text-gray-900">
-                      +40% productivity
-                    </span>
+                    <span className="text-xs font-medium text-gray-900">+40% productivity</span>
                   </div>
                 </div>
               </div>
@@ -2591,7 +2558,7 @@ export default function Index() {
                 rating: 5,
               },
               {
-                name: "Ana López",
+                name: "Ana L��pez",
                 role: "Freelancer Designer",
                 company: "Diseño Independiente",
                 avatar: "AL",
