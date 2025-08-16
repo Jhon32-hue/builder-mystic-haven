@@ -99,7 +99,22 @@ export default function Index() {
   const [toolsCarouselIndex, setToolsCarouselIndex] = useState(0);
   const [calendarView, setCalendarView] = useState("month");
   const [selectedDate, setSelectedDate] = useState(15);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+
+  // Auto sync with system theme
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e: MediaQueryListEvent) => {
+      setDarkMode(e.matches);
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -510,7 +525,7 @@ export default function Index() {
   };
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900' : 'bg-gradient-to-br from-slate-50 via-white to-indigo-50'} overflow-x-hidden transition-all duration-500`}>
+    <div className={`min-h-screen ${darkMode ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900' : 'bg-gradient-to-br from-slate-50 via-white to-indigo-50'} overflow-x-hidden transition-all duration-500`}>
       {/* Enhanced Floating Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div
@@ -562,7 +577,7 @@ export default function Index() {
       </div>
 
             {/* Enhanced Navigation */}
-      <nav className={`border-b ${darkMode ? 'border-slate-700 bg-slate-900/95 hover:bg-slate-900/98' : 'border-gray-200 bg-white/95 hover:bg-white/98'} backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 shadow-sm relative overflow-hidden`}>
+      <nav className={`border-b ${darkMode ? 'border-purple-800/50 bg-gray-900/95 hover:bg-gray-900/98' : 'border-gray-200 bg-white/95 hover:bg-white/98'} backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 shadow-sm relative overflow-hidden`}>
         {/* Animated header background */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/50 via-white/80 to-blue-50/50 opacity-0 hover:opacity-100 transition-opacity duration-500" />
         <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-blue-500 to-purple-500 animate-shimmer" />
@@ -623,7 +638,7 @@ export default function Index() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setDarkMode(!darkMode)}
-                className={`p-3 rounded-xl transition-all duration-300 transform hover:scale-105 relative group ${darkMode ? 'bg-slate-800 text-yellow-400 hover:bg-slate-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                className={`p-3 rounded-xl transition-all duration-300 transform hover:scale-105 relative group ${darkMode ? 'bg-purple-800 text-yellow-300 hover:bg-purple-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "350ms" }}
               >
                 {darkMode ? (
@@ -2741,7 +2756,7 @@ export default function Index() {
 
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-3xl md:text-5xl font-black mb-6">
-            ¿Listo para revolucionar tu forma de trabajar?
+            ��Listo para revolucionar tu forma de trabajar?
           </h2>
           <p className="text-xl mb-8 text-indigo-100">
             Comienza con Taskly hoy. Crea tu espacio de trabajo ideal y conecta
