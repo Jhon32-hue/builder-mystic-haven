@@ -651,7 +651,7 @@ export default function Index() {
 
               <Button
                 variant="ghost"
-                className={`${darkMode ? 'text-gray-300 hover:text-white hover:bg-slate-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50'} transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                className={`${darkMode ? 'text-gray-300 hover:text-white hover:bg-purple-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50'} transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "400ms" }}
               >
                 <span className="relative z-10">Iniciar Sesión</span>
