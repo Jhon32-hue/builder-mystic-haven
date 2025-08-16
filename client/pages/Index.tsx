@@ -711,7 +711,7 @@ export default function Index() {
               <div className="flex flex-col space-y-2 px-3 pt-4">
                 <Button
                   variant="ghost"
-                  className={`justify-start ${darkMode ? 'text-gray-300 hover:text-white hover:bg-slate-800' : 'hover:bg-gray-50'}`}
+                  className={`justify-start ${darkMode ? 'text-gray-300 hover:text-white hover:bg-purple-800' : 'hover:bg-gray-50'}`}
                 >
                   Iniciar Sesión
                 </Button>
