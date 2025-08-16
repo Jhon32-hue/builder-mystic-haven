@@ -1779,7 +1779,7 @@ export default function Index() {
       </section>
 
       {/* Team Types Section */}
-      <section id="equipos" className={`py-20 ${darkMode ? 'bg-slate-900' : 'bg-white'} relative transition-colors duration-500`}>
+      <section id="equipos" className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 relative">
             {/* Animated section background */}
@@ -1840,7 +1840,7 @@ export default function Index() {
       {/* Enhanced CRM Integrations Section */}
       <section
         id="integraciones"
-        className={`py-20 ${darkMode ? 'bg-gradient-to-br from-slate-800 to-blue-900' : 'bg-gradient-to-br from-gray-50 to-indigo-50'} transition-colors duration-500`}
+        className={`py-20 ${darkMode ? 'bg-gradient-to-br from-purple-900 to-indigo-900' : 'bg-gradient-to-br from-gray-50 to-indigo-50'} transition-colors duration-500`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 relative">
@@ -1933,7 +1933,7 @@ export default function Index() {
       </section>
 
       {/* CRM Workflow Visualization Section */}
-      <section className={`py-20 ${darkMode ? 'bg-slate-900' : 'bg-white'} relative overflow-hidden transition-colors duration-500`}>
+      <section className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative overflow-hidden transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className={`text-3xl md:text-4xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-4 transition-colors duration-500`}>
@@ -2288,7 +2288,7 @@ export default function Index() {
       </section>
 
       {/* Enhanced Productivity Tools Integration Section */}
-      <section className={`py-20 ${darkMode ? 'bg-slate-900' : 'bg-white'} relative transition-colors duration-500`}>
+      <section className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 relative">
             {/* Animated productivity icons */}
@@ -2458,7 +2458,7 @@ export default function Index() {
       {/* Features Section */}
       <section
         id="características"
-        className={`py-20 ${darkMode ? 'bg-gradient-to-br from-slate-800 to-blue-900' : 'bg-gradient-to-br from-gray-50 to-indigo-50'} relative transition-colors duration-500`}
+        className={`py-20 ${darkMode ? 'bg-gradient-to-br from-purple-900 to-indigo-900' : 'bg-gradient-to-br from-gray-50 to-indigo-50'} relative transition-colors duration-500`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -2554,7 +2554,7 @@ export default function Index() {
       </section>
 
       {/* Testimonials & Social Proof Section */}
-      <section className={`py-20 ${darkMode ? 'bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900' : 'bg-gradient-to-br from-indigo-50 via-white to-blue-50'} relative overflow-hidden transition-colors duration-500`}>
+      <section className={`py-20 ${darkMode ? 'bg-gradient-to-br from-purple-900 via-gray-900 to-indigo-900' : 'bg-gradient-to-br from-indigo-50 via-white to-blue-50'} relative overflow-hidden transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16 relative">
@@ -2756,7 +2756,7 @@ export default function Index() {
 
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-3xl md:text-5xl font-black mb-6">
-            ��Listo para revolucionar tu forma de trabajar?
+            ¿Listo para revolucionar tu forma de trabajar?
           </h2>
           <p className="text-xl mb-8 text-indigo-100">
             Comienza con Taskly hoy. Crea tu espacio de trabajo ideal y conecta
