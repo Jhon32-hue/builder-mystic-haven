@@ -701,7 +701,7 @@ export default function Index() {
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className={`block px-3 py-2 ${darkMode ? 'text-gray-300 hover:text-white hover:bg-slate-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'} rounded-lg transition-colors duration-300`}
+                    className={`block px-3 py-2 ${darkMode ? 'text-gray-300 hover:text-white hover:bg-purple-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'} rounded-lg transition-colors duration-300`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item}
