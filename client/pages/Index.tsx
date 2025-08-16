@@ -777,7 +777,7 @@ export default function Index() {
             style={{ transitionDelay: "700ms" }}
           >
             {/* Professional Dashboard Container */}
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden hover:shadow-3xl transition-all duration-500">
+            <div className={`${darkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-gray-200'} rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500`}>
               {/* Enhanced Dashboard Header */}
               <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-4 border-b border-gray-200">
                 <div className="flex items-center justify-between">
