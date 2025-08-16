@@ -1663,7 +1663,7 @@ export default function Index() {
                                 <CardContent className="p-4">
                                   {/* Task Header */}
                                   <div className="flex items-start justify-between mb-3">
-                                    <h5 className={`text-sm font-medium ${darkMode ? 'text-white' : 'text-gray-900'} line-clamp-2 group-hover:text-indigo-600 transition-colors duration-200`}>
+                                    <h5 className="text-sm font-medium text-gray-900 line-clamp-2 group-hover:text-indigo-600 transition-colors duration-200">
                                       {task.title}
                                     </h5>
                                     <Button size="sm" variant="ghost" className="p-1 opacity-0 group-hover:opacity-100 transition-opacity">
