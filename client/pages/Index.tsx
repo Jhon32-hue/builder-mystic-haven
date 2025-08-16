@@ -1899,7 +1899,7 @@ export default function Index() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-shadow duration-300">
+            <Card className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white shadow-lg border-0'} text-center p-6 hover:shadow-xl transition-shadow duration-300`}>
               <Database className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 Sincronización Bidireccional
@@ -1909,7 +1909,7 @@ export default function Index() {
               </p>
             </Card>
 
-            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-shadow duration-300">
+            <Card className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white shadow-lg border-0'} text-center p-6 hover:shadow-xl transition-shadow duration-300`}>
               <Zap className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 Automatización Inteligente
@@ -1919,7 +1919,7 @@ export default function Index() {
               </p>
             </Card>
 
-            <Card className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-shadow duration-300">
+            <Card className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white shadow-lg border-0'} text-center p-6 hover:shadow-xl transition-shadow duration-300`}>
               <BarChart3 className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 Reportes Unificados
