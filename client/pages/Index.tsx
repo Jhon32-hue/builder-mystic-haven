@@ -1751,7 +1751,7 @@ export default function Index() {
                         { label: "Completadas Hoy", value: "5", icon: CheckCircle, color: "text-green-600" },
                         { label: "Tiempo Promedio", value: "4.2h", icon: Timer, color: "text-purple-600" }
                       ].map((stat, index) => (
-                        <Card key={index} className={`${darkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-gray-200'} transition-colors duration-300`}>
+                        <Card key={index} className="bg-white border-gray-200">
                           <CardContent className="p-4 text-center">
                             <stat.icon className={`h-6 w-6 ${stat.color} mx-auto mb-2`} />
                             <div className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>{stat.value}</div>
