@@ -1754,8 +1754,8 @@ export default function Index() {
                         <Card key={index} className="bg-white border-gray-200">
                           <CardContent className="p-4 text-center">
                             <stat.icon className={`h-6 w-6 ${stat.color} mx-auto mb-2`} />
-                            <div className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>{stat.value}</div>
-                            <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{stat.label}</div>
+                            <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
+                            <div className="text-sm text-gray-600">{stat.label}</div>
                           </CardContent>
                         </Card>
                       ))}
