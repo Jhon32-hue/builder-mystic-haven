@@ -1687,7 +1687,7 @@ export default function Index() {
                                     {task.tags.map((tag, tagIndex) => (
                                       <Badge
                                         key={tagIndex}
-                                        className={`text-xs px-2 py-0.5 ${darkMode ? 'bg-slate-600 text-gray-300' : 'bg-gray-100 text-gray-700'}`}
+                                        className="text-xs px-2 py-0.5 bg-gray-100 text-gray-700"
                                       >
                                         {tag}
                                       </Badge>
