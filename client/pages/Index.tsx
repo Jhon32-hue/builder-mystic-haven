@@ -2452,10 +2452,10 @@ export default function Index() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">
+            <h2 className={`text-3xl md:text-5xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-6 transition-colors duration-500`}>
               Funcionalidades avanzadas
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto">
+            <p className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto transition-colors duration-500`}>
               Todas las herramientas que necesitas en un solo lugar, optimizadas
               para la colaboración moderna
             </p>
@@ -2624,7 +2624,7 @@ export default function Index() {
                 avatar: "JP",
                 avatarColor: "bg-orange-500",
                 testimonial:
-                  "Las integraciones con GitHub y Slack son increíbles. Nuestro equipo distribuido puede colaborar como si estuviéramos en la misma oficina. Game changer total.",
+                  "Las integraciones con GitHub y Slack son increíbles. Nuestro equipo distribuido puede colaborar como si estuvi��ramos en la misma oficina. Game changer total.",
                 rating: 5,
               },
               {
