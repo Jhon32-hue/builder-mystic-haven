@@ -1565,7 +1565,7 @@ export default function Index() {
                     {/* Kanban Header */}
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center space-x-4">
-                        <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>Tablero Kanban</h3>
+                        <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} transition-colors duration-500`}>Tablero Kanban</h3>
                         <Badge className="bg-green-100 text-green-700 px-3 py-1">
                           16 tareas activas
                         </Badge>
