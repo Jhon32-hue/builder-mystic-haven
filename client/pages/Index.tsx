@@ -655,7 +655,7 @@ export default function Index() {
                 style={{ transitionDelay: "400ms" }}
               >
                 <span className="relative z-10">Iniciar Sesión</span>
-                <div className={`absolute inset-0 border ${darkMode ? 'border-slate-600 group-hover:border-blue-400' : 'border-gray-200 group-hover:border-indigo-200'} rounded-xl transition-colors duration-300`} />
+                <div className={`absolute inset-0 border ${darkMode ? 'border-purple-700 group-hover:border-purple-400' : 'border-gray-200 group-hover:border-indigo-200'} rounded-xl transition-colors duration-300`} />
               </Button>
               <Button
                 className={`bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 px-6 py-2.5 rounded-xl font-semibold relative overflow-hidden group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
