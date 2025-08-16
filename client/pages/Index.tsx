@@ -2544,7 +2544,7 @@ export default function Index() {
       </section>
 
       {/* Testimonials & Social Proof Section */}
-      <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-blue-50 relative overflow-hidden">
+      <section className={`py-20 ${darkMode ? 'bg-gradient-to-br from-slate-800 via-slate-900 to-blue-900' : 'bg-gradient-to-br from-indigo-50 via-white to-blue-50'} relative overflow-hidden transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16 relative">
@@ -2624,7 +2624,7 @@ export default function Index() {
                 avatar: "JP",
                 avatarColor: "bg-orange-500",
                 testimonial:
-                  "Las integraciones con GitHub y Slack son increíbles. Nuestro equipo distribuido puede colaborar como si estuvi��ramos en la misma oficina. Game changer total.",
+                  "Las integraciones con GitHub y Slack son increíbles. Nuestro equipo distribuido puede colaborar como si estuviéramos en la misma oficina. Game changer total.",
                 rating: 5,
               },
               {
