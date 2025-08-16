@@ -2581,7 +2581,7 @@ export default function Index() {
             ].map((stat, index) => (
               <Card
                 key={index}
-                className="border-0 shadow-lg text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 bg-white/80 backdrop-blur-sm"
+                className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white/80 shadow-lg border-0'} text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm`}
               >
                 <stat.icon className="h-8 w-8 text-indigo-600 mx-auto mb-3" />
                 <div className="text-3xl font-black text-gray-900 mb-2">
