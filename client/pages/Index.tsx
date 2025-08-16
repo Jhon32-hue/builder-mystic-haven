@@ -793,7 +793,7 @@ export default function Index() {
                         style={{ animationDelay: "1s" }}
                       ></div>
                     </div>
-                    <div className="text-lg font-semibold text-gray-700">
+                    <div className={`text-lg font-semibold ${darkMode ? 'text-gray-200' : 'text-gray-700'}`}>
                       Taskly Professional Dashboard
                     </div>
                   </div>
