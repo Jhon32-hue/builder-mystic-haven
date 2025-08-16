@@ -84,6 +84,8 @@ import {
   Flag,
   Repeat,
   RotateCcw,
+  Moon,
+  Sun,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -97,6 +99,7 @@ export default function Index() {
   const [toolsCarouselIndex, setToolsCarouselIndex] = useState(0);
   const [calendarView, setCalendarView] = useState("month");
   const [selectedDate, setSelectedDate] = useState(15);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -614,14 +617,30 @@ export default function Index() {
                 )}
               </div>
             </div>
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-4">
+              {/* Dark Mode Toggle */}
               <Button
                 variant="ghost"
-                                className={`text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50 transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                size="sm"
+                onClick={() => setDarkMode(!darkMode)}
+                className={`p-3 rounded-xl transition-all duration-300 transform hover:scale-105 relative group ${darkMode ? 'bg-slate-800 text-yellow-400 hover:bg-slate-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                style={{ transitionDelay: "350ms" }}
+              >
+                {darkMode ? (
+                  <Sun className="h-5 w-5 transition-transform duration-300 group-hover:rotate-180" />
+                ) : (
+                  <Moon className="h-5 w-5 transition-transform duration-300 group-hover:-rotate-12" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-200/0 to-orange-200/0 group-hover:from-yellow-200/20 group-hover:to-orange-200/20 rounded-xl transition-all duration-300" />
+              </Button>
+
+              <Button
+                variant="ghost"
+                className={`${darkMode ? 'text-gray-300 hover:text-white hover:bg-slate-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50'} transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "400ms" }}
               >
                 <span className="relative z-10">Iniciar Sesión</span>
-                                <div className="absolute inset-0 border border-gray-200 rounded-xl group-hover:border-indigo-200 transition-colors duration-300" />
+                <div className={`absolute inset-0 border ${darkMode ? 'border-slate-600 group-hover:border-blue-400' : 'border-gray-200 group-hover:border-indigo-200'} rounded-xl transition-colors duration-300`} />
               </Button>
               <Button
                 className={`bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 px-6 py-2.5 rounded-xl font-semibold relative overflow-hidden group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
