@@ -1852,10 +1852,10 @@ export default function Index() {
                 <BarChart3 className="h-7 w-7 text-purple-300/60" />
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 relative z-10 animate-in slide-in-from-left-4 duration-800">
+            <h2 className={`text-3xl md:text-4xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-4 relative z-10 animate-in slide-in-from-left-4 duration-800 transition-colors duration-500`}>
               Conecta con Taskly
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto relative z-10 animate-in slide-in-from-right-4 duration-800 delay-200">
+            <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto relative z-10 animate-in slide-in-from-right-4 duration-800 delay-200 transition-colors duration-500`}>
               Integra tu CRM favorito y sincroniza clientes, oportunidades y
               datos de ventas en tiempo real
             </p>
