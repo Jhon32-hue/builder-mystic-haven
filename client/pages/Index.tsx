@@ -562,7 +562,7 @@ export default function Index() {
       </div>
 
             {/* Enhanced Navigation */}
-      <nav className="border-b bg-white/95 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 hover:bg-white/98 shadow-sm relative overflow-hidden">
+      <nav className={`border-b ${darkMode ? 'border-slate-700 bg-slate-900/95 hover:bg-slate-900/98' : 'border-gray-200 bg-white/95 hover:bg-white/98'} backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 shadow-sm relative overflow-hidden`}>
         {/* Animated header background */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/50 via-white/80 to-blue-50/50 opacity-0 hover:opacity-100 transition-opacity duration-500" />
         <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-blue-500 to-purple-500 animate-shimmer" />
