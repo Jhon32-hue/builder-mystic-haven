@@ -1733,7 +1733,7 @@ export default function Index() {
                             {/* Add New Task Button */}
                             <Button
                               variant="outline"
-                              className={`w-full border-dashed ${darkMode ? 'border-slate-600 text-gray-400 hover:bg-slate-700 hover:border-slate-500' : 'border-gray-300 text-gray-500 hover:bg-gray-50'} transition-all duration-200 group`}
+                              className="w-full border-dashed border-gray-300 text-gray-500 hover:bg-gray-50 transition-all duration-200 group"
                             >
                               <Plus className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
                               Agregar tarea
