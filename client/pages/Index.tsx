@@ -694,7 +694,7 @@ export default function Index() {
           </div>
         </div>
         {mobileMenuOpen && (
-                    <div className={`md:hidden border-t ${darkMode ? 'border-slate-700 bg-slate-900/98' : 'border-gray-200 bg-white/98'} backdrop-blur-xl animate-in slide-in-from-top-2 duration-300`}>
+                    <div className={`md:hidden border-t ${darkMode ? 'border-purple-800 bg-gray-900/98' : 'border-gray-200 bg-white/98'} backdrop-blur-xl animate-in slide-in-from-top-2 duration-300`}>
             <div className="px-2 pt-2 pb-3 space-y-1">
               {["Características", "Precios", "Equipos", "Integraciones"].map(
                 (item) => (
