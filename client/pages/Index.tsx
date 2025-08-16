@@ -2551,10 +2551,10 @@ export default function Index() {
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-100/30 to-blue-100/30 rounded-full blur-3xl animate-pulse" />
             </div>
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 relative z-10 animate-in slide-in-from-bottom-4 duration-1000">
+            <h2 className={`text-3xl md:text-5xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-6 relative z-10 animate-in slide-in-from-bottom-4 duration-1000 transition-colors duration-500`}>
               Lo que dicen nuestros clientes
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto relative z-10 animate-in slide-in-from-bottom-4 duration-1000 delay-300">
+            <p className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto relative z-10 animate-in slide-in-from-bottom-4 duration-1000 delay-300 transition-colors duration-500`}>
               Más de{" "}
               <span className="font-bold text-indigo-600">10,000+ equipos</span>{" "}
               ya confían en Taskly para transformar su productividad
