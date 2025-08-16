@@ -679,7 +679,7 @@ export default function Index() {
           </div>
         </div>
         {mobileMenuOpen && (
-                    <div className="md:hidden border-t bg-white/98 backdrop-blur-xl animate-in slide-in-from-top-2 duration-300">
+                    <div className={`md:hidden border-t ${darkMode ? 'border-slate-700 bg-slate-900/98' : 'border-gray-200 bg-white/98'} backdrop-blur-xl animate-in slide-in-from-top-2 duration-300`}>
             <div className="px-2 pt-2 pb-3 space-y-1">
               {["Características", "Precios", "Equipos", "Integraciones"].map(
                 (item) => (
@@ -2507,7 +2507,7 @@ export default function Index() {
                 icon: Activity,
                 title: "Dashboard Personalizable",
                 description:
-                  "Adapta la vista a tus necesidades con widgets personalizables y m��ltiples layouts.",
+                  "Adapta la vista a tus necesidades con widgets personalizables y múltiples layouts.",
                 color: "red",
                 delay: "600ms",
               },
