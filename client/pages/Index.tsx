@@ -726,24 +726,19 @@ export default function Index() {
               className={`text-4xl md:text-6xl lg:text-7xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-8 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
               style={{ transitionDelay: "300ms" }}
             >
-              El espacio colaborativo{" "}
+              Colabora.{" "}
               <span className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-blue-600 bg-clip-text text-transparent animate-gradient bg-300% relative">
-                para equipos de cualquier tamaño.
+                Crea. Escala.
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 via-indigo-600/20 to-blue-600/20 blur-lg opacity-30 animate-pulse" />
               </span>
             </h1>
 
             <p
-              className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-10 max-w-6xl mx-auto leading-relaxed text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+              className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-10 max-w-4xl mx-auto leading-relaxed text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
               style={{ transitionDelay: "400ms", lineHeight: "32px" }}
             >
-              Desde startups ágiles hasta agencias, equipos remotos y
-              freelancers, <strong className="text-indigo-600">Taskly</strong>{" "}
-              te proporciona el entorno perfecto para gestionar tareas,
-              colaborar y optimizar tu flujo de trabajo. Adaptado a cada tipo de
-              equipo, con herramientas poderosas, automatización y completa
-              integración de CRM empresarial. Todo lo que necesitas, en un solo
-              lugar.
+              La plataforma todo-en-uno que conecta equipos, automatiza flujos y potencia resultados.{" "}
+              <strong className="text-indigo-600">Simple. Poderoso. Para todos.</strong>
             </p>
 
             <div
