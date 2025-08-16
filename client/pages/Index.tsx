@@ -1559,48 +1559,206 @@ export default function Index() {
                   </div>
                 )}
 
-                {/* Enhanced Kanban View */}
+                {/* Professional Kanban Board */}
                 {dashboardView === "kanban" && (
                   <div className="animate-in slide-in-from-right-4 duration-500">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-96">
-                      {["Por Hacer", "En Progreso", "Completado"].map(
-                        (column, index) => (
-                          <Card
-                            key={index}
-                            className="border-0 shadow-lg bg-white/90 backdrop-blur-sm"
-                          >
-                            <CardHeader className="pb-3">
-                              <CardTitle className="text-lg flex items-center justify-between">
-                                {column}
-                                <Badge className="bg-indigo-100 text-indigo-700">
-                                  {index === 0 ? 5 : index === 1 ? 3 : 8}
-                                </Badge>
-                              </CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-3">
-                              {Array.from({
-                                length: index === 0 ? 3 : index === 1 ? 2 : 4,
-                              }).map((_, taskIndex) => (
-                                <Card
-                                  key={taskIndex}
-                                  className="p-3 hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-100 hover:border-indigo-200 transform hover:scale-[1.02]"
-                                  style={{
-                                    animationDelay: `${taskIndex * 100}ms`,
-                                  }}
-                                >
-                                  <p className="text-sm font-medium mb-2">
-                                    Tarea de ejemplo {taskIndex + 1}
-                                  </p>
-                                  <div className="flex items-center justify-between">
-                                    <div className="w-6 h-6 bg-indigo-500 rounded-full animate-pulse" />
-                                    <Badge className="text-xs">Alta</Badge>
+                    {/* Kanban Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center space-x-4">
+                        <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>Tablero Kanban</h3>
+                        <Badge className="bg-green-100 text-green-700 px-3 py-1">
+                          16 tareas activas
+                        </Badge>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Button size="sm" variant="outline" className={`${darkMode ? 'border-slate-600 text-gray-300 hover:bg-slate-800' : 'border-gray-300'}`}>
+                          <Filter className="h-4 w-4 mr-2" />
+                          Filtrar
+                        </Button>
+                        <Button size="sm" className="bg-indigo-500 hover:bg-indigo-600">
+                          <Plus className="h-4 w-4 mr-2" />
+                          Nueva Tarea
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Enhanced Kanban Board */}
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 min-h-[600px]">
+                      {[
+                        {
+                          title: "Backlog",
+                          count: 8,
+                          color: "bg-gray-500",
+                          bgColor: "bg-gray-50",
+                          borderColor: "border-gray-200",
+                          tasks: [
+                            { id: 1, title: "Diseñar nueva landing page", priority: "media", assignee: "AL", tags: ["UI/UX", "Web"], time: "5h" },
+                            { id: 2, title: "Investigar competencia", priority: "baja", assignee: "MG", tags: ["Research"], time: "3h" },
+                            { id: 3, title: "Definir arquitectura API", priority: "alta", assignee: "CR", tags: ["Backend"], time: "8h" }
+                          ]
+                        },
+                        {
+                          title: "Por Hacer",
+                          count: 5,
+                          color: "bg-blue-500",
+                          bgColor: "bg-blue-50",
+                          borderColor: "border-blue-200",
+                          tasks: [
+                            { id: 4, title: "Implementar autenticación OAuth", priority: "alta", assignee: "CR", tags: ["Backend", "Auth"], time: "6h" },
+                            { id: 5, title: "Crear wireframes dashboard", priority: "media", assignee: "AL", tags: ["Diseño"], time: "4h" }
+                          ]
+                        },
+                        {
+                          title: "En Progreso",
+                          count: 3,
+                          color: "bg-yellow-500",
+                          bgColor: "bg-yellow-50",
+                          borderColor: "border-yellow-200",
+                          tasks: [
+                            { id: 6, title: "Desarrollar API de usuarios", priority: "alta", assignee: "CR", tags: ["Backend"], time: "12h", progress: 70 },
+                            { id: 7, title: "Testing automatizado", priority: "media", assignee: "JP", tags: ["QA"], time: "8h", progress: 45 }
+                          ]
+                        },
+                        {
+                          title: "Completado",
+                          count: 12,
+                          color: "bg-green-500",
+                          bgColor: "bg-green-50",
+                          borderColor: "border-green-200",
+                          tasks: [
+                            { id: 8, title: "Setup inicial del proyecto", priority: "alta", assignee: "MG", tags: ["Setup"], time: "4h", completed: true },
+                            { id: 9, title: "Configurar CI/CD pipeline", priority: "media", assignee: "JP", tags: ["DevOps"], time: "6h", completed: true },
+                            { id: 10, title: "Diseño del logo", priority: "baja", assignee: "AL", tags: ["Branding"], time: "2h", completed: true }
+                          ]
+                        }
+                      ].map((column, index) => (
+                        <div key={index} className="flex flex-col">
+                          {/* Column Header */}
+                          <div className={`${column.bgColor} ${darkMode ? 'bg-opacity-20' : ''} rounded-t-xl p-4 border-l-4 ${column.borderColor}`}>
+                            <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center space-x-2">
+                                <div className={`w-3 h-3 ${column.color} rounded-full`} />
+                                <h4 className={`font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>{column.title}</h4>
+                              </div>
+                              <Badge className={`${column.color} text-white text-xs px-2 py-1`}>
+                                {column.count}
+                              </Badge>
+                            </div>
+                            <div className="w-full bg-gray-200 rounded-full h-1">
+                              <div
+                                className={`h-1 ${column.color} rounded-full transition-all duration-500`}
+                                style={{ width: `${(column.count / 16) * 100}%` }}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Column Content */}
+                          <div className={`flex-1 ${darkMode ? 'bg-slate-800/50' : 'bg-white'} rounded-b-xl border-l-4 ${column.borderColor} border-t-0 p-4 space-y-3 min-h-[500px] transition-colors duration-300`}>
+                            {column.tasks.map((task, taskIndex) => (
+                              <Card
+                                key={task.id}
+                                className={`group cursor-pointer transition-all duration-300 hover:shadow-lg transform hover:scale-[1.02] hover:-translate-y-1 ${darkMode ? 'bg-slate-700 border-slate-600 hover:bg-slate-600' : 'bg-white border-gray-200 hover:border-indigo-300'}`}
+                                style={{ animationDelay: `${taskIndex * 100}ms` }}
+                              >
+                                <CardContent className="p-4">
+                                  {/* Task Header */}
+                                  <div className="flex items-start justify-between mb-3">
+                                    <h5 className={`text-sm font-medium ${darkMode ? 'text-white' : 'text-gray-900'} line-clamp-2 group-hover:text-indigo-600 transition-colors duration-200`}>
+                                      {task.title}
+                                    </h5>
+                                    <Button size="sm" variant="ghost" className="p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                      <MoreHorizontal className="h-3 w-3" />
+                                    </Button>
                                   </div>
-                                </Card>
-                              ))}
-                            </CardContent>
-                          </Card>
-                        ),
-                      )}
+
+                                  {/* Progress Bar (for in-progress tasks) */}
+                                  {task.progress && (
+                                    <div className="mb-3">
+                                      <div className="flex items-center justify-between text-xs mb-1">
+                                        <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Progreso</span>
+                                        <span className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>{task.progress}%</span>
+                                      </div>
+                                      <Progress value={task.progress} className="h-2" />
+                                    </div>
+                                  )}
+
+                                  {/* Task Tags */}
+                                  <div className="flex flex-wrap gap-1 mb-3">
+                                    {task.tags.map((tag, tagIndex) => (
+                                      <Badge
+                                        key={tagIndex}
+                                        className={`text-xs px-2 py-0.5 ${darkMode ? 'bg-slate-600 text-gray-300' : 'bg-gray-100 text-gray-700'}`}
+                                      >
+                                        {tag}
+                                      </Badge>
+                                    ))}
+                                  </div>
+
+                                  {/* Task Footer */}
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex items-center space-x-2">
+                                      {/* Assignee Avatar */}
+                                      <div className={`w-6 h-6 ${['bg-purple-500', 'bg-blue-500', 'bg-green-500', 'bg-orange-500'][Math.floor(Math.random() * 4)]} rounded-full flex items-center justify-center text-white text-xs font-bold`}>
+                                        {task.assignee}
+                                      </div>
+                                      {/* Time Estimate */}
+                                      <div className="flex items-center space-x-1">
+                                        <Clock className={`h-3 w-3 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+                                        <span className={`text-xs ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{task.time}</span>
+                                      </div>
+                                    </div>
+
+                                    {/* Priority Badge */}
+                                    <Badge
+                                      className={`text-xs ${
+                                        task.priority === 'alta' ? 'bg-red-100 text-red-700' :
+                                        task.priority === 'media' ? 'bg-yellow-100 text-yellow-700' :
+                                        'bg-green-100 text-green-700'
+                                      }`}
+                                    >
+                                      {task.priority}
+                                    </Badge>
+                                  </div>
+
+                                  {/* Completed Indicator */}
+                                  {task.completed && (
+                                    <div className="absolute top-2 right-2">
+                                      <CheckCircle className="h-4 w-4 text-green-500" />
+                                    </div>
+                                  )}
+                                </CardContent>
+                              </Card>
+                            ))}
+
+                            {/* Add New Task Button */}
+                            <Button
+                              variant="outline"
+                              className={`w-full border-dashed ${darkMode ? 'border-slate-600 text-gray-400 hover:bg-slate-700 hover:border-slate-500' : 'border-gray-300 text-gray-500 hover:bg-gray-50'} transition-all duration-200 group`}
+                            >
+                              <Plus className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
+                              Agregar tarea
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Kanban Stats */}
+                    <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+                      {[
+                        { label: "Tareas Totales", value: "28", icon: Briefcase, color: "text-blue-600" },
+                        { label: "En Progreso", value: "3", icon: Clock, color: "text-yellow-600" },
+                        { label: "Completadas Hoy", value: "5", icon: CheckCircle, color: "text-green-600" },
+                        { label: "Tiempo Promedio", value: "4.2h", icon: Timer, color: "text-purple-600" }
+                      ].map((stat, index) => (
+                        <Card key={index} className={`${darkMode ? 'bg-slate-800 border-slate-700' : 'bg-white border-gray-200'} transition-colors duration-300`}>
+                          <CardContent className="p-4 text-center">
+                            <stat.icon className={`h-6 w-6 ${stat.color} mx-auto mb-2`} />
+                            <div className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>{stat.value}</div>
+                            <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{stat.label}</div>
+                          </CardContent>
+                        </Card>
+                      ))}
                     </div>
                   </div>
                 )}
