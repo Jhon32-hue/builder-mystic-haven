@@ -1653,7 +1653,7 @@ export default function Index() {
                           </div>
 
                           {/* Column Content */}
-                          <div className={`flex-1 ${darkMode ? 'bg-slate-800/50' : 'bg-white'} rounded-b-xl border-l-4 ${column.borderColor} border-t-0 p-4 space-y-3 min-h-[500px] transition-colors duration-300`}>
+                          <div className={`flex-1 bg-white rounded-b-xl border-l-4 ${column.borderColor} border-t-0 p-4 space-y-3 min-h-[500px]`}>
                             {column.tasks.map((task, taskIndex) => (
                               <Card
                                 key={task.id}
