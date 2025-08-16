@@ -864,7 +864,7 @@ export default function Index() {
               </div>
 
               {/* Enhanced Dashboard Content */}
-              <div className="p-6 bg-gradient-to-br from-indigo-50/30 via-white to-blue-50/30 min-h-[700px]">
+              <div className={`p-6 ${darkMode ? 'bg-gradient-to-br from-slate-800/50 via-slate-800 to-blue-900/30' : 'bg-gradient-to-br from-indigo-50/30 via-white to-blue-50/30'} min-h-[700px] transition-all duration-500`}>
                 {/* Overview Dashboard */}
                 {dashboardView === "overview" && (
                   <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
@@ -2507,7 +2507,7 @@ export default function Index() {
                 icon: Activity,
                 title: "Dashboard Personalizable",
                 description:
-                  "Adapta la vista a tus necesidades con widgets personalizables y múltiples layouts.",
+                  "Adapta la vista a tus necesidades con widgets personalizables y m��ltiples layouts.",
                 color: "red",
                 delay: "600ms",
               },
