@@ -2308,10 +2308,10 @@ export default function Index() {
                 <Palette className="h-6 w-6 text-pink-300/50" />
               </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 relative z-10 animate-in zoom-in-50 duration-1000">
+            <h2 className={`text-3xl md:text-4xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-4 relative z-10 animate-in zoom-in-50 duration-1000 transition-colors duration-500`}>
               Herramientas de Productividad
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto relative z-10 animate-in fade-in duration-1000 delay-300">
+            <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto relative z-10 animate-in fade-in duration-1000 delay-300 transition-colors duration-500`}>
               Conecta con las herramientas que ya usas y potencia tu flujo de
               trabajo colaborativo
             </p>
