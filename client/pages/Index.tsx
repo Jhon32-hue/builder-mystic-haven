@@ -1657,7 +1657,7 @@ export default function Index() {
                             {column.tasks.map((task, taskIndex) => (
                               <Card
                                 key={task.id}
-                                className={`group cursor-pointer transition-all duration-300 hover:shadow-lg transform hover:scale-[1.02] hover:-translate-y-1 ${darkMode ? 'bg-slate-700 border-slate-600 hover:bg-slate-600' : 'bg-white border-gray-200 hover:border-indigo-300'}`}
+                                className="group cursor-pointer transition-all duration-300 hover:shadow-lg transform hover:scale-[1.02] hover:-translate-y-1 bg-white border-gray-200 hover:border-indigo-300"
                                 style={{ animationDelay: `${taskIndex * 100}ms` }}
                               >
                                 <CardContent className="p-4">
