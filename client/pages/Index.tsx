@@ -100,20 +100,20 @@ export default function Index() {
   const [calendarView, setCalendarView] = useState("month");
   const [selectedDate, setSelectedDate] = useState(15);
   const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (typeof window !== "undefined") {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
     return false;
   });
 
   // Auto sync with system theme
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = (e: MediaQueryListEvent) => {
       setDarkMode(e.matches);
     };
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   useEffect(() => {
@@ -525,7 +525,9 @@ export default function Index() {
   };
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900' : 'bg-gradient-to-br from-slate-50 via-white to-indigo-50'} overflow-x-hidden transition-all duration-500`}>
+    <div
+      className={`min-h-screen ${darkMode ? "bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900" : "bg-gradient-to-br from-slate-50 via-white to-indigo-50"} overflow-x-hidden transition-all duration-500`}
+    >
       {/* Enhanced Floating Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div
@@ -576,8 +578,10 @@ export default function Index() {
         />
       </div>
 
-            {/* Enhanced Navigation */}
-      <nav className={`border-b ${darkMode ? 'border-purple-800/50 bg-gray-900/95 hover:bg-gray-900/98' : 'border-gray-200 bg-white/95 hover:bg-white/98'} backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 shadow-sm relative overflow-hidden`}>
+      {/* Enhanced Navigation */}
+      <nav
+        className={`border-b ${darkMode ? "border-purple-800/50 bg-gray-900/95 hover:bg-gray-900/98" : "border-gray-200 bg-white/95 hover:bg-white/98"} backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 shadow-sm relative overflow-hidden`}
+      >
         {/* Animated header background */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/50 via-white/80 to-blue-50/50 opacity-0 hover:opacity-100 transition-opacity duration-500" />
         <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-500 via-blue-500 to-purple-500 animate-shimmer" />
@@ -597,7 +601,9 @@ export default function Index() {
                 </div>
                 {/* Enhanced typography */}
                 <div className="ml-4 relative">
-                  <span className={`text-4xl font-black leading-10 transition-all duration-500 ${darkMode ? 'text-white bg-gradient-to-r from-white via-blue-100 to-indigo-100 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:via-indigo-300 group-hover:to-purple-300' : 'text-gray-900 bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-700 bg-clip-text text-transparent group-hover:from-indigo-600 group-hover:via-blue-600 group-hover:to-purple-600'}`}>
+                  <span
+                    className={`text-4xl font-black leading-10 transition-all duration-500 ${darkMode ? "text-white bg-gradient-to-r from-white via-blue-100 to-indigo-100 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:via-indigo-300 group-hover:to-purple-300" : "text-gray-900 bg-gradient-to-r from-gray-900 via-indigo-900 to-gray-700 bg-clip-text text-transparent group-hover:from-indigo-600 group-hover:via-blue-600 group-hover:to-purple-600"}`}
+                  >
                     Taskly
                   </span>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 group-hover:w-full transition-all duration-700" />
@@ -618,7 +624,7 @@ export default function Index() {
                     <a
                       key={item}
                       href={`#${item.toLowerCase()}`}
-                      className={`${darkMode ? 'text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-800/50 hover:to-indigo-800/50' : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50'} px-5 py-3 text-sm font-semibold transition-all duration-300 rounded-xl relative group transform hover:scale-105 hover:-translate-y-0.5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                      className={`${darkMode ? "text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-800/50 hover:to-indigo-800/50" : "text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50"} px-5 py-3 text-sm font-semibold transition-all duration-300 rounded-xl relative group transform hover:scale-105 hover:-translate-y-0.5 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                       style={{ transitionDelay: `${100 + index * 100}ms` }}
                     >
                       <span className="relative z-10">{item}</span>
@@ -638,7 +644,7 @@ export default function Index() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setDarkMode(!darkMode)}
-                className={`p-3 rounded-xl transition-all duration-300 transform hover:scale-105 relative group ${darkMode ? 'bg-purple-800 text-yellow-300 hover:bg-purple-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                className={`p-3 rounded-xl transition-all duration-300 transform hover:scale-105 relative group ${darkMode ? "bg-purple-800 text-yellow-300 hover:bg-purple-700" : "bg-gray-100 text-gray-600 hover:bg-gray-200"} ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "350ms" }}
               >
                 {darkMode ? (
@@ -651,11 +657,13 @@ export default function Index() {
 
               <Button
                 variant="ghost"
-                className={`${darkMode ? 'text-gray-300 hover:text-white hover:bg-purple-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50'} transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                className={`${darkMode ? "text-gray-300 hover:text-white hover:bg-purple-800" : "text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-indigo-50"} transition-all duration-300 transform hover:scale-105 px-6 py-2.5 rounded-xl font-semibold relative group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
                 style={{ transitionDelay: "400ms" }}
               >
                 <span className="relative z-10">Iniciar Sesión</span>
-                <div className={`absolute inset-0 border ${darkMode ? 'border-purple-700 group-hover:border-purple-400' : 'border-gray-200 group-hover:border-indigo-200'} rounded-xl transition-colors duration-300`} />
+                <div
+                  className={`absolute inset-0 border ${darkMode ? "border-purple-700 group-hover:border-purple-400" : "border-gray-200 group-hover:border-indigo-200"} rounded-xl transition-colors duration-300`}
+                />
               </Button>
               <Button
                 className={`bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 px-6 py-2.5 rounded-xl font-semibold relative overflow-hidden group ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
@@ -694,14 +702,16 @@ export default function Index() {
           </div>
         </div>
         {mobileMenuOpen && (
-                    <div className={`md:hidden border-t ${darkMode ? 'border-purple-800 bg-gray-900/98' : 'border-gray-200 bg-white/98'} backdrop-blur-xl animate-in slide-in-from-top-2 duration-300`}>
+          <div
+            className={`md:hidden border-t ${darkMode ? "border-purple-800 bg-gray-900/98" : "border-gray-200 bg-white/98"} backdrop-blur-xl animate-in slide-in-from-top-2 duration-300`}
+          >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {["Características", "Precios", "Equipos", "Integraciones"].map(
                 (item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className={`block px-3 py-2 ${darkMode ? 'text-gray-300 hover:text-white hover:bg-purple-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'} rounded-lg transition-colors duration-300`}
+                    className={`block px-3 py-2 ${darkMode ? "text-gray-300 hover:text-white hover:bg-purple-800" : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"} rounded-lg transition-colors duration-300`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item}
@@ -711,7 +721,7 @@ export default function Index() {
               <div className="flex flex-col space-y-2 px-3 pt-4">
                 <Button
                   variant="ghost"
-                  className={`justify-start ${darkMode ? 'text-gray-300 hover:text-white hover:bg-purple-800' : 'hover:bg-gray-50'}`}
+                  className={`justify-start ${darkMode ? "text-gray-300 hover:text-white hover:bg-purple-800" : "hover:bg-gray-50"}`}
                 >
                   Iniciar Sesión
                 </Button>
@@ -725,8 +735,10 @@ export default function Index() {
         )}
       </nav>
 
-            {/* Enhanced Hero Section */}
-      <section className={`relative overflow-hidden py-24 transition-all duration-500`}>
+      {/* Enhanced Hero Section */}
+      <section
+        className={`relative overflow-hidden py-24 transition-all duration-500`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Badge
@@ -738,7 +750,7 @@ export default function Index() {
             </Badge>
 
             <h1
-              className={`text-4xl md:text-6xl lg:text-7xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-8 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
+              className={`text-4xl md:text-6xl lg:text-7xl font-black ${darkMode ? "text-white" : "text-gray-900"} mb-8 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
               style={{ transitionDelay: "300ms" }}
             >
               Colabora.{" "}
@@ -749,11 +761,14 @@ export default function Index() {
             </h1>
 
             <p
-              className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-10 max-w-4xl mx-auto leading-relaxed text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+              className={`text-xl md:text-2xl ${darkMode ? "text-gray-300" : "text-gray-600"} mb-10 max-w-4xl mx-auto leading-relaxed text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
               style={{ transitionDelay: "400ms", lineHeight: "32px" }}
             >
-              La plataforma todo-en-uno que conecta equipos, automatiza flujos y potencia resultados.{" "}
-              <strong className="text-indigo-600">Simple. Poderoso. Para todos.</strong>
+              La plataforma todo-en-uno que conecta equipos, automatiza flujos y
+              potencia resultados.{" "}
+              <strong className="text-indigo-600">
+                Simple. Poderoso. Para todos.
+              </strong>
             </p>
 
             <div
@@ -1575,17 +1590,28 @@ export default function Index() {
                     {/* Kanban Header */}
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center space-x-4">
-                        <h3 className={`text-2xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} transition-colors duration-500`}>Tablero Kanban</h3>
+                        <h3
+                          className={`text-2xl font-bold ${darkMode ? "text-white" : "text-gray-900"} transition-colors duration-500`}
+                        >
+                          Tablero Kanban
+                        </h3>
                         <Badge className="bg-green-100 text-green-700 px-3 py-1">
                           16 tareas activas
                         </Badge>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Button size="sm" variant="outline" className={`${darkMode ? 'border-slate-600 text-gray-300 hover:bg-slate-800' : 'border-gray-300'}`}>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className={`${darkMode ? "border-slate-600 text-gray-300 hover:bg-slate-800" : "border-gray-300"}`}
+                        >
                           <Filter className="h-4 w-4 mr-2" />
                           Filtrar
                         </Button>
-                        <Button size="sm" className="bg-indigo-500 hover:bg-indigo-600">
+                        <Button
+                          size="sm"
+                          className="bg-indigo-500 hover:bg-indigo-600"
+                        >
                           <Plus className="h-4 w-4 mr-2" />
                           Nueva Tarea
                         </Button>
@@ -1602,10 +1628,31 @@ export default function Index() {
                           bgColor: "bg-gray-50",
                           borderColor: "border-gray-200",
                           tasks: [
-                            { id: 1, title: "Diseñar nueva landing page", priority: "media", assignee: "AL", tags: ["UI/UX", "Web"], time: "5h" },
-                            { id: 2, title: "Investigar competencia", priority: "baja", assignee: "MG", tags: ["Research"], time: "3h" },
-                            { id: 3, title: "Definir arquitectura API", priority: "alta", assignee: "CR", tags: ["Backend"], time: "8h" }
-                          ]
+                            {
+                              id: 1,
+                              title: "Diseñar nueva landing page",
+                              priority: "media",
+                              assignee: "AL",
+                              tags: ["UI/UX", "Web"],
+                              time: "5h",
+                            },
+                            {
+                              id: 2,
+                              title: "Investigar competencia",
+                              priority: "baja",
+                              assignee: "MG",
+                              tags: ["Research"],
+                              time: "3h",
+                            },
+                            {
+                              id: 3,
+                              title: "Definir arquitectura API",
+                              priority: "alta",
+                              assignee: "CR",
+                              tags: ["Backend"],
+                              time: "8h",
+                            },
+                          ],
                         },
                         {
                           title: "Por Hacer",
@@ -1614,9 +1661,23 @@ export default function Index() {
                           bgColor: "bg-blue-50",
                           borderColor: "border-blue-200",
                           tasks: [
-                            { id: 4, title: "Implementar autenticación OAuth", priority: "alta", assignee: "CR", tags: ["Backend", "Auth"], time: "6h" },
-                            { id: 5, title: "Crear wireframes dashboard", priority: "media", assignee: "AL", tags: ["Diseño"], time: "4h" }
-                          ]
+                            {
+                              id: 4,
+                              title: "Implementar autenticación OAuth",
+                              priority: "alta",
+                              assignee: "CR",
+                              tags: ["Backend", "Auth"],
+                              time: "6h",
+                            },
+                            {
+                              id: 5,
+                              title: "Crear wireframes dashboard",
+                              priority: "media",
+                              assignee: "AL",
+                              tags: ["Diseño"],
+                              time: "4h",
+                            },
+                          ],
                         },
                         {
                           title: "En Progreso",
@@ -1625,9 +1686,25 @@ export default function Index() {
                           bgColor: "bg-yellow-50",
                           borderColor: "border-yellow-200",
                           tasks: [
-                            { id: 6, title: "Desarrollar API de usuarios", priority: "alta", assignee: "CR", tags: ["Backend"], time: "12h", progress: 70 },
-                            { id: 7, title: "Testing automatizado", priority: "media", assignee: "JP", tags: ["QA"], time: "8h", progress: 45 }
-                          ]
+                            {
+                              id: 6,
+                              title: "Desarrollar API de usuarios",
+                              priority: "alta",
+                              assignee: "CR",
+                              tags: ["Backend"],
+                              time: "12h",
+                              progress: 70,
+                            },
+                            {
+                              id: 7,
+                              title: "Testing automatizado",
+                              priority: "media",
+                              assignee: "JP",
+                              tags: ["QA"],
+                              time: "8h",
+                              progress: 45,
+                            },
+                          ],
                         },
                         {
                           title: "Completado",
@@ -1636,39 +1713,79 @@ export default function Index() {
                           bgColor: "bg-green-50",
                           borderColor: "border-green-200",
                           tasks: [
-                            { id: 8, title: "Setup inicial del proyecto", priority: "alta", assignee: "MG", tags: ["Setup"], time: "4h", completed: true },
-                            { id: 9, title: "Configurar CI/CD pipeline", priority: "media", assignee: "JP", tags: ["DevOps"], time: "6h", completed: true },
-                            { id: 10, title: "Diseño del logo", priority: "baja", assignee: "AL", tags: ["Branding"], time: "2h", completed: true }
-                          ]
-                        }
+                            {
+                              id: 8,
+                              title: "Setup inicial del proyecto",
+                              priority: "alta",
+                              assignee: "MG",
+                              tags: ["Setup"],
+                              time: "4h",
+                              completed: true,
+                            },
+                            {
+                              id: 9,
+                              title: "Configurar CI/CD pipeline",
+                              priority: "media",
+                              assignee: "JP",
+                              tags: ["DevOps"],
+                              time: "6h",
+                              completed: true,
+                            },
+                            {
+                              id: 10,
+                              title: "Diseño del logo",
+                              priority: "baja",
+                              assignee: "AL",
+                              tags: ["Branding"],
+                              time: "2h",
+                              completed: true,
+                            },
+                          ],
+                        },
                       ].map((column, index) => (
                         <div key={index} className="flex flex-col">
                           {/* Column Header */}
-                          <div className={`${column.bgColor} ${darkMode ? 'bg-opacity-20' : ''} rounded-t-xl p-4 border-l-4 ${column.borderColor}`}>
+                          <div
+                            className={`${column.bgColor} ${darkMode ? "bg-opacity-20" : ""} rounded-t-xl p-4 border-l-4 ${column.borderColor}`}
+                          >
                             <div className="flex items-center justify-between mb-2">
                               <div className="flex items-center space-x-2">
-                                <div className={`w-3 h-3 ${column.color} rounded-full`} />
-                                <h4 className={`font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>{column.title}</h4>
+                                <div
+                                  className={`w-3 h-3 ${column.color} rounded-full`}
+                                />
+                                <h4
+                                  className={`font-semibold ${darkMode ? "text-white" : "text-gray-900"}`}
+                                >
+                                  {column.title}
+                                </h4>
                               </div>
-                              <Badge className={`${column.color} text-white text-xs px-2 py-1`}>
+                              <Badge
+                                className={`${column.color} text-white text-xs px-2 py-1`}
+                              >
                                 {column.count}
                               </Badge>
                             </div>
                             <div className="w-full bg-gray-200 rounded-full h-1">
                               <div
                                 className={`h-1 ${column.color} rounded-full transition-all duration-500`}
-                                style={{ width: `${(column.count / 16) * 100}%` }}
+                                style={{
+                                  width: `${(column.count / 16) * 100}%`,
+                                }}
                               />
                             </div>
                           </div>
 
                           {/* Column Content */}
-                          <div className={`flex-1 bg-white rounded-b-xl border-l-4 ${column.borderColor} border-t-0 p-4 space-y-3 min-h-[500px]`}>
+                          <div
+                            className={`flex-1 bg-white rounded-b-xl border-l-4 ${column.borderColor} border-t-0 p-4 space-y-3 min-h-[500px]`}
+                          >
                             {column.tasks.map((task, taskIndex) => (
                               <Card
                                 key={task.id}
                                 className="group cursor-pointer transition-all duration-300 hover:shadow-lg transform hover:scale-[1.02] hover:-translate-y-1 bg-white border-gray-200 hover:border-indigo-300"
-                                style={{ animationDelay: `${taskIndex * 100}ms` }}
+                                style={{
+                                  animationDelay: `${taskIndex * 100}ms`,
+                                }}
                               >
                                 <CardContent className="p-4">
                                   {/* Task Header */}
@@ -1676,7 +1793,11 @@ export default function Index() {
                                     <h5 className="text-sm font-medium text-gray-900 line-clamp-2 group-hover:text-indigo-600 transition-colors duration-200">
                                       {task.title}
                                     </h5>
-                                    <Button size="sm" variant="ghost" className="p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <Button
+                                      size="sm"
+                                      variant="ghost"
+                                      className="p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                    >
                                       <MoreHorizontal className="h-3 w-3" />
                                     </Button>
                                   </div>
@@ -1685,10 +1806,17 @@ export default function Index() {
                                   {task.progress && (
                                     <div className="mb-3">
                                       <div className="flex items-center justify-between text-xs mb-1">
-                                        <span className="text-gray-600">Progreso</span>
-                                        <span className="font-medium text-gray-900">{task.progress}%</span>
+                                        <span className="text-gray-600">
+                                          Progreso
+                                        </span>
+                                        <span className="font-medium text-gray-900">
+                                          {task.progress}%
+                                        </span>
                                       </div>
-                                      <Progress value={task.progress} className="h-2" />
+                                      <Progress
+                                        value={task.progress}
+                                        className="h-2"
+                                      />
                                     </div>
                                   )}
 
@@ -1708,22 +1836,28 @@ export default function Index() {
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center space-x-2">
                                       {/* Assignee Avatar */}
-                                      <div className={`w-6 h-6 ${['bg-purple-500', 'bg-blue-500', 'bg-green-500', 'bg-orange-500'][Math.floor(Math.random() * 4)]} rounded-full flex items-center justify-center text-white text-xs font-bold`}>
+                                      <div
+                                        className={`w-6 h-6 ${["bg-purple-500", "bg-blue-500", "bg-green-500", "bg-orange-500"][Math.floor(Math.random() * 4)]} rounded-full flex items-center justify-center text-white text-xs font-bold`}
+                                      >
                                         {task.assignee}
                                       </div>
                                       {/* Time Estimate */}
                                       <div className="flex items-center space-x-1">
                                         <Clock className="h-3 w-3 text-gray-500" />
-                                        <span className="text-xs text-gray-600">{task.time}</span>
+                                        <span className="text-xs text-gray-600">
+                                          {task.time}
+                                        </span>
                                       </div>
                                     </div>
 
                                     {/* Priority Badge */}
                                     <Badge
                                       className={`text-xs ${
-                                        task.priority === 'alta' ? 'bg-red-100 text-red-700' :
-                                        task.priority === 'media' ? 'bg-yellow-100 text-yellow-700' :
-                                        'bg-green-100 text-green-700'
+                                        task.priority === "alta"
+                                          ? "bg-red-100 text-red-700"
+                                          : task.priority === "media"
+                                            ? "bg-yellow-100 text-yellow-700"
+                                            : "bg-green-100 text-green-700"
                                       }`}
                                     >
                                       {task.priority}
@@ -1756,16 +1890,42 @@ export default function Index() {
                     {/* Kanban Stats */}
                     <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
                       {[
-                        { label: "Tareas Totales", value: "28", icon: Briefcase, color: "text-blue-600" },
-                        { label: "En Progreso", value: "3", icon: Clock, color: "text-yellow-600" },
-                        { label: "Completadas Hoy", value: "5", icon: CheckCircle, color: "text-green-600" },
-                        { label: "Tiempo Promedio", value: "4.2h", icon: Timer, color: "text-purple-600" }
+                        {
+                          label: "Tareas Totales",
+                          value: "28",
+                          icon: Briefcase,
+                          color: "text-blue-600",
+                        },
+                        {
+                          label: "En Progreso",
+                          value: "3",
+                          icon: Clock,
+                          color: "text-yellow-600",
+                        },
+                        {
+                          label: "Completadas Hoy",
+                          value: "5",
+                          icon: CheckCircle,
+                          color: "text-green-600",
+                        },
+                        {
+                          label: "Tiempo Promedio",
+                          value: "4.2h",
+                          icon: Timer,
+                          color: "text-purple-600",
+                        },
                       ].map((stat, index) => (
                         <Card key={index} className="bg-white border-gray-200">
                           <CardContent className="p-4 text-center">
-                            <stat.icon className={`h-6 w-6 ${stat.color} mx-auto mb-2`} />
-                            <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                            <div className="text-sm text-gray-600">{stat.label}</div>
+                            <stat.icon
+                              className={`h-6 w-6 ${stat.color} mx-auto mb-2`}
+                            />
+                            <div className="text-2xl font-bold text-gray-900">
+                              {stat.value}
+                            </div>
+                            <div className="text-sm text-gray-600">
+                              {stat.label}
+                            </div>
                           </CardContent>
                         </Card>
                       ))}
@@ -1779,17 +1939,24 @@ export default function Index() {
       </section>
 
       {/* Team Types Section */}
-      <section id="equipos" className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative transition-colors duration-500`}>
+      <section
+        id="equipos"
+        className={`py-20 ${darkMode ? "bg-gray-900" : "bg-white"} relative transition-colors duration-500`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 relative">
             {/* Animated section background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-100/30 to-blue-100/30 rounded-full blur-3xl animate-pulse" />
             </div>
-            <h2 className={`text-3xl md:text-5xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-6 relative z-10 animate-in slide-in-from-bottom-4 duration-1000 transition-colors duration-500`}>
+            <h2
+              className={`text-3xl md:text-5xl font-black ${darkMode ? "text-white" : "text-gray-900"} mb-6 relative z-10 animate-in slide-in-from-bottom-4 duration-1000 transition-colors duration-500`}
+            >
               Diseñado para todo tipo de equipo
             </h2>
-            <p className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto relative z-10 animate-in slide-in-from-bottom-4 duration-1000 delay-300 transition-colors duration-500`}>
+            <p
+              className={`text-xl md:text-2xl ${darkMode ? "text-gray-300" : "text-gray-600"} max-w-4xl mx-auto relative z-10 animate-in slide-in-from-bottom-4 duration-1000 delay-300 transition-colors duration-500`}
+            >
               Taskly se adapta perfectamente a tu forma de trabajar,
               independientemente del tamaño o tipo de tu organización
             </p>
@@ -1840,7 +2007,7 @@ export default function Index() {
       {/* Enhanced CRM Integrations Section */}
       <section
         id="integraciones"
-        className={`py-20 ${darkMode ? 'bg-gradient-to-br from-purple-900 to-indigo-900' : 'bg-gradient-to-br from-gray-50 to-indigo-50'} transition-colors duration-500`}
+        className={`py-20 ${darkMode ? "bg-gradient-to-br from-purple-900 to-indigo-900" : "bg-gradient-to-br from-gray-50 to-indigo-50"} transition-colors duration-500`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 relative">
@@ -1862,10 +2029,14 @@ export default function Index() {
                 <BarChart3 className="h-7 w-7 text-purple-300/60" />
               </div>
             </div>
-            <h2 className={`text-3xl md:text-4xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-4 relative z-10 animate-in slide-in-from-left-4 duration-800 transition-colors duration-500`}>
+            <h2
+              className={`text-3xl md:text-4xl font-black ${darkMode ? "text-white" : "text-gray-900"} mb-4 relative z-10 animate-in slide-in-from-left-4 duration-800 transition-colors duration-500`}
+            >
               Conecta con Taskly
             </h2>
-            <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto relative z-10 animate-in slide-in-from-right-4 duration-800 delay-200 transition-colors duration-500`}>
+            <p
+              className={`text-xl ${darkMode ? "text-gray-300" : "text-gray-600"} max-w-3xl mx-auto relative z-10 animate-in slide-in-from-right-4 duration-800 delay-200 transition-colors duration-500`}
+            >
               Integra tu CRM favorito y sincroniza clientes, oportunidades y
               datos de ventas en tiempo real
             </p>
@@ -1882,7 +2053,9 @@ export default function Index() {
               {[...crmIntegrations, ...crmIntegrations].map(
                 (integration, index) => (
                   <div key={index} className="w-1/6 flex-shrink-0 px-3">
-                    <Card className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white shadow-lg border-0'} hover:shadow-xl transition-all duration-300 transform hover:scale-105 group text-center p-6`}>
+                    <Card
+                      className={`${darkMode ? "bg-white/95 shadow-2xl border border-white/10" : "bg-white shadow-lg border-0"} hover:shadow-xl transition-all duration-300 transform hover:scale-105 group text-center p-6`}
+                    >
                       <div
                         className={`w-12 h-12 ${integration.color} rounded-lg flex items-center justify-center text-white font-bold text-lg mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}
                       >
@@ -1899,7 +2072,9 @@ export default function Index() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white shadow-lg border-0'} text-center p-6 hover:shadow-xl transition-shadow duration-300`}>
+            <Card
+              className={`${darkMode ? "bg-white/95 shadow-2xl border border-white/10" : "bg-white shadow-lg border-0"} text-center p-6 hover:shadow-xl transition-shadow duration-300`}
+            >
               <Database className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 Sincronización Bidireccional
@@ -1909,7 +2084,9 @@ export default function Index() {
               </p>
             </Card>
 
-            <Card className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white shadow-lg border-0'} text-center p-6 hover:shadow-xl transition-shadow duration-300`}>
+            <Card
+              className={`${darkMode ? "bg-white/95 shadow-2xl border border-white/10" : "bg-white shadow-lg border-0"} text-center p-6 hover:shadow-xl transition-shadow duration-300`}
+            >
               <Zap className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 Automatización Inteligente
@@ -1919,7 +2096,9 @@ export default function Index() {
               </p>
             </Card>
 
-            <Card className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white shadow-lg border-0'} text-center p-6 hover:shadow-xl transition-shadow duration-300`}>
+            <Card
+              className={`${darkMode ? "bg-white/95 shadow-2xl border border-white/10" : "bg-white shadow-lg border-0"} text-center p-6 hover:shadow-xl transition-shadow duration-300`}
+            >
               <BarChart3 className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">
                 Reportes Unificados
@@ -1933,13 +2112,19 @@ export default function Index() {
       </section>
 
       {/* CRM Workflow Visualization Section */}
-      <section className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative overflow-hidden transition-colors duration-500`}>
+      <section
+        className={`py-20 ${darkMode ? "bg-gray-900" : "bg-white"} relative overflow-hidden transition-colors duration-500`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className={`text-3xl md:text-4xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-4 transition-colors duration-500`}>
+            <h2
+              className={`text-3xl md:text-4xl font-black ${darkMode ? "text-white" : "text-gray-900"} mb-4 transition-colors duration-500`}
+            >
               Flujo CRM Visualizado
             </h2>
-            <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto transition-colors duration-500`}>
+            <p
+              className={`text-xl ${darkMode ? "text-gray-300" : "text-gray-600"} max-w-3xl mx-auto transition-colors duration-500`}
+            >
               Gestiona el ciclo completo desde leads hasta clientes, con
               seguimiento automatizado y métricas en tiempo real
             </p>
@@ -2288,7 +2473,9 @@ export default function Index() {
       </section>
 
       {/* Enhanced Productivity Tools Integration Section */}
-      <section className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'} relative transition-colors duration-500`}>
+      <section
+        className={`py-20 ${darkMode ? "bg-gray-900" : "bg-white"} relative transition-colors duration-500`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 relative">
             {/* Animated productivity icons */}
@@ -2318,10 +2505,14 @@ export default function Index() {
                 <Palette className="h-6 w-6 text-pink-300/50" />
               </div>
             </div>
-            <h2 className={`text-3xl md:text-4xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-4 relative z-10 animate-in zoom-in-50 duration-1000 transition-colors duration-500`}>
+            <h2
+              className={`text-3xl md:text-4xl font-black ${darkMode ? "text-white" : "text-gray-900"} mb-4 relative z-10 animate-in zoom-in-50 duration-1000 transition-colors duration-500`}
+            >
               Herramientas de Productividad
             </h2>
-            <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto relative z-10 animate-in fade-in duration-1000 delay-300 transition-colors duration-500`}>
+            <p
+              className={`text-xl ${darkMode ? "text-gray-300" : "text-gray-600"} max-w-3xl mx-auto relative z-10 animate-in fade-in duration-1000 delay-300 transition-colors duration-500`}
+            >
               Conecta con las herramientas que ya usas y potencia tu flujo de
               trabajo colaborativo
             </p>
@@ -2458,14 +2649,18 @@ export default function Index() {
       {/* Features Section */}
       <section
         id="características"
-        className={`py-20 ${darkMode ? 'bg-gradient-to-br from-purple-900 to-indigo-900' : 'bg-gradient-to-br from-gray-50 to-indigo-50'} relative transition-colors duration-500`}
+        className={`py-20 ${darkMode ? "bg-gradient-to-br from-purple-900 to-indigo-900" : "bg-gradient-to-br from-gray-50 to-indigo-50"} relative transition-colors duration-500`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className={`text-3xl md:text-5xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-6 transition-colors duration-500`}>
+            <h2
+              className={`text-3xl md:text-5xl font-black ${darkMode ? "text-white" : "text-gray-900"} mb-6 transition-colors duration-500`}
+            >
               Funcionalidades avanzadas
             </h2>
-            <p className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto transition-colors duration-500`}>
+            <p
+              className={`text-xl md:text-2xl ${darkMode ? "text-gray-300" : "text-gray-600"} max-w-4xl mx-auto transition-colors duration-500`}
+            >
               Todas las herramientas que necesitas en un solo lugar, optimizadas
               para la colaboración moderna
             </p>
@@ -2554,17 +2749,23 @@ export default function Index() {
       </section>
 
       {/* Testimonials & Social Proof Section */}
-      <section className={`py-20 ${darkMode ? 'bg-gradient-to-br from-purple-900 via-gray-900 to-indigo-900' : 'bg-gradient-to-br from-indigo-50 via-white to-blue-50'} relative overflow-hidden transition-colors duration-500`}>
+      <section
+        className={`py-20 ${darkMode ? "bg-gradient-to-br from-purple-900 via-gray-900 to-indigo-900" : "bg-gradient-to-br from-indigo-50 via-white to-blue-50"} relative overflow-hidden transition-colors duration-500`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16 relative">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-100/30 to-blue-100/30 rounded-full blur-3xl animate-pulse" />
             </div>
-            <h2 className={`text-3xl md:text-5xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-6 relative z-10 animate-in slide-in-from-bottom-4 duration-1000 transition-colors duration-500`}>
+            <h2
+              className={`text-3xl md:text-5xl font-black ${darkMode ? "text-white" : "text-gray-900"} mb-6 relative z-10 animate-in slide-in-from-bottom-4 duration-1000 transition-colors duration-500`}
+            >
               Lo que dicen nuestros clientes
             </h2>
-            <p className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto relative z-10 animate-in slide-in-from-bottom-4 duration-1000 delay-300 transition-colors duration-500`}>
+            <p
+              className={`text-xl md:text-2xl ${darkMode ? "text-gray-300" : "text-gray-600"} max-w-4xl mx-auto relative z-10 animate-in slide-in-from-bottom-4 duration-1000 delay-300 transition-colors duration-500`}
+            >
               Más de{" "}
               <span className="font-bold text-indigo-600">10,000+ equipos</span>{" "}
               ya confían en Taskly para transformar su productividad
@@ -2581,7 +2782,7 @@ export default function Index() {
             ].map((stat, index) => (
               <Card
                 key={index}
-                className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white/80 shadow-lg border-0'} text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm`}
+                className={`${darkMode ? "bg-white/95 shadow-2xl border border-white/10" : "bg-white/80 shadow-lg border-0"} text-center p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm`}
               >
                 <stat.icon className="h-8 w-8 text-indigo-600 mx-auto mb-3" />
                 <div className="text-3xl font-black text-gray-900 mb-2">
@@ -2784,7 +2985,9 @@ export default function Index() {
       </section>
 
       {/* Enhanced Professional Footer */}
-      <footer className={`${darkMode ? 'bg-black' : 'bg-gray-900'} text-white py-16 relative transition-colors duration-500`}>
+      <footer
+        className={`${darkMode ? "bg-black" : "bg-gray-900"} text-white py-16 relative transition-colors duration-500`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {/* Company Info */}
