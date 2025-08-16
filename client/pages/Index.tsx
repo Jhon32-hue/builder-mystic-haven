@@ -1926,10 +1926,10 @@ export default function Index() {
       <section className={`py-20 ${darkMode ? 'bg-slate-900' : 'bg-white'} relative overflow-hidden transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+            <h2 className={`text-3xl md:text-4xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-4 transition-colors duration-500`}>
               Flujo CRM Visualizado
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto transition-colors duration-500`}>
               Gestiona el ciclo completo desde leads hasta clientes, con
               seguimiento automatizado y métricas en tiempo real
             </p>
