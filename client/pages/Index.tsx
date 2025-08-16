@@ -1675,8 +1675,8 @@ export default function Index() {
                                   {task.progress && (
                                     <div className="mb-3">
                                       <div className="flex items-center justify-between text-xs mb-1">
-                                        <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Progreso</span>
-                                        <span className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>{task.progress}%</span>
+                                        <span className="text-gray-600">Progreso</span>
+                                        <span className="font-medium text-gray-900">{task.progress}%</span>
                                       </div>
                                       <Progress value={task.progress} className="h-2" />
                                     </div>
