@@ -1882,7 +1882,7 @@ export default function Index() {
               {[...crmIntegrations, ...crmIntegrations].map(
                 (integration, index) => (
                   <div key={index} className="w-1/6 flex-shrink-0 px-3">
-                    <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group text-center p-6">
+                    <Card className={`${darkMode ? 'bg-white/95 shadow-2xl border border-white/10' : 'bg-white shadow-lg border-0'} hover:shadow-xl transition-all duration-300 transform hover:scale-105 group text-center p-6`}>
                       <div
                         className={`w-12 h-12 ${integration.color} rounded-lg flex items-center justify-center text-white font-bold text-lg mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}
                       >
