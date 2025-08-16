@@ -723,7 +723,7 @@ export default function Index() {
             </Badge>
 
             <h1
-              className={`text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
+              className={`text-4xl md:text-6xl lg:text-7xl font-black ${darkMode ? 'text-white' : 'text-gray-900'} mb-8 leading-tight transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
               style={{ transitionDelay: "300ms" }}
             >
               El espacio colaborativo{" "}
@@ -734,7 +734,7 @@ export default function Index() {
             </h1>
 
             <p
-              className={`text-xl md:text-2xl text-gray-600 mb-10 max-w-6xl mx-auto leading-relaxed text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+              className={`text-xl md:text-2xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-10 max-w-6xl mx-auto leading-relaxed text-center transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
               style={{ transitionDelay: "400ms", lineHeight: "32px" }}
             >
               Desde startups ágiles hasta agencias, equipos remotos y
